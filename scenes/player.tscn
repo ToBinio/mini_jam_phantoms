@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bhsmow5701nn4" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://f4da0hem1atq" path="res://assets/character.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://chmfpncmfqa0d" path="res://assets/2d_lights_and_shadows_neutral_point_light.webp" id="3_qhqgy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
 radius = 12.0
@@ -26,3 +27,8 @@ enabled = false
 shape = SubResource("CircleShape2D_h562u")
 target_position = Vector2(0, 0)
 collision_mask = 2
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1319038979]
+color = Color(0.7204101, 0.8336144, 0.93730915, 1)
+texture = ExtResource("3_qhqgy")
+texture_scale = 3.0
