@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var jump_velocity = -400.0
 
 @onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
+@onready var particles: GPUParticles2D = $Particles
 
 var original_texture: Texture2D
 
@@ -88,6 +89,7 @@ func possess_nearby_body():
 		body.queue_free()
 		
 		global_position = body.global_position
+		particles.emitting = false
 		
 		break
 		
@@ -105,7 +107,7 @@ func leave_body():
 	
 	$Sprite2D.texture = original_texture
 	
-	
+	particles.emitting = true
 	
 func pufferfish_ability():
 	shape_cast_2d.force_shapecast_update()
