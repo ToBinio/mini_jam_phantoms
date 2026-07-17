@@ -17,19 +17,25 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("phantom"):
 		if $Sprite2D.texture == original_texture:
 			possess_nearby_body()
 		else:
 			leave_body()
 			
+	if Input.is_action_just_pressed("interact"):
+		print("hi")
+		for group in get_groups():
+			print(group)
+			match group.get_basename():
+				"Pufferfish":
+					pufferfish_ability()
+			
 	if is_in_group("Crab"):
-		# Add the gravity.
 		if not is_on_floor():
 			velocity += get_gravity() / 2 * delta
 
-		# Handle jump.
-		if Input.is_action_just_pressed("interact") and is_on_floor():
+		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 			velocity.y = jump_velocity
 		
 		var direction := Input.get_axis("ui_left", "ui_right")
@@ -89,13 +95,26 @@ func possess_nearby_body():
 func leave_body():
 	var new_body = possessed_body_scene.instantiate()
 	
-	if !new_body.is_in_group("Pufferfish"):
-		new_body.global_position = global_position
-		get_parent().add_child(new_body)
-		new_body.get_node("Sprite2D").texture = $Sprite2D.texture
+	new_body.global_position = global_position
+	get_parent().add_child(new_body)
+	new_body.get_node("Sprite2D").texture = $Sprite2D.texture
 	
 	for group in new_body.get_groups():
 		remove_from_group(group)
+		print(group.get_basename())
+		
+	add_to_group("Player")
+	
+	$Sprite2D.texture = original_texture
+	
+	
+	
+func pufferfish_ability():
+	var new_body = possessed_body_scene.instantiate()
+	
+	for group in new_body.get_groups():
+		remove_from_group(group)
+		print(group.get_basename())
 		
 	add_to_group("Player")
 	
