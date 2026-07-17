@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var speed = 300.0
 @export var friction = 800.0
 @export var acceleration = 400.0
+@export var jump_velocity = -400.0
 
 @onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 
@@ -21,18 +22,33 @@ func _physics_process(delta: float) -> void:
 			possess_nearby_body()
 		else:
 			leave_body()
-	
-	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	if direction != Vector2.ZERO:
-		velocity = velocity.move_toward(direction*speed, acceleration * delta)
+			
+	if is_in_group("Crab"):
+		# Add the gravity.
+		if not is_on_floor():
+			velocity += get_gravity() / 2 * delta
+
+		# Handle jump.
+		if Input.is_action_just_pressed("interact") and is_on_floor():
+			velocity.y = jump_velocity
 		
+		var direction := Input.get_axis("ui_left", "ui_right")
+		if direction:
+			velocity.x = direction * speed
+		else:
+			velocity.x = move_toward(velocity.x, 0, speed)
 	else:
-		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
-	
-	if velocity.x > 0:
-		$Sprite2D.flip_h = false
-	elif velocity.x < 0:
-		$Sprite2D.flip_h = true
+		var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		if direction != Vector2.ZERO:
+			velocity = velocity.move_toward(direction*speed, acceleration * delta)
+			
+		else:
+			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
+		
+		if velocity.x > 0:
+			$Sprite2D.flip_h = false
+		elif velocity.x < 0:
+			$Sprite2D.flip_h = true
 	
 	move_and_slide()
 
@@ -49,8 +65,15 @@ func possess_nearby_body():
 		var other_sprite = body.get_node("Sprite2D")
 		var my_sprite = $Sprite2D
 		
+		remove_from_group("Player")
+		
+		for group in body.get_groups():
+			add_to_group(group)
+		
 		if body.is_in_group("Pufferfish"):
 			possessed_body_scene = preload("res://scenes/pufferfish.tscn")
+		elif body.is_in_group("Crab"):
+			possessed_body_scene = preload("res://scenes/crab.tscn")
 		else:
 			possessed_body_scene = preload("res://scenes/fish.tscn")
 		
@@ -67,9 +90,13 @@ func leave_body():
 	var new_body = possessed_body_scene.instantiate()
 	
 	if !new_body.is_in_group("Pufferfish"):
-		print(new_body.get_groups())
 		new_body.global_position = global_position
 		get_parent().add_child(new_body)
 		new_body.get_node("Sprite2D").texture = $Sprite2D.texture
+	
+	for group in new_body.get_groups():
+		remove_from_group(group)
+		
+	add_to_group("Player")
 	
 	$Sprite2D.texture = original_texture

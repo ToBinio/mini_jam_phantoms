@@ -11,7 +11,7 @@ height = 42.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_h562u"]
 radius = 57.07
 
-[node name="Player" type="CharacterBody2D" unique_id=1754042684]
+[node name="Player" type="CharacterBody2D" unique_id=1754042684 groups=["Player"]]
 collision_layer = 0
 script = ExtResource("1_3vyb7")
 
