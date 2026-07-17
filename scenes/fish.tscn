@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bjhkd4pgkf6l0"]
 
 [ext_resource type="Texture2D" uid="uid://cli57qw61sucw" path="res://assets/fish.png" id="1_n6yr6"]
+[ext_resource type="Script" uid="uid://m01cv41pfaxx" path="res://scripts/fish.gd" id="1_nub35"]
 [ext_resource type="Script" uid="uid://b2twrtvcwy5v8" path="res://scripts/fish/fish_sprite.gd" id="2_8g0i4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8g0i4"]
-radius = 3.0
-height = 12.0
+height = 38.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nub35"]
 resource_local_to_scene = true
@@ -13,8 +13,11 @@ atlas = ExtResource("1_n6yr6")
 region = Rect2(0, 0, 16, 16)
 
 [node name="Fish" type="CharacterBody2D" unique_id=1754323588]
+collision_layer = 0
+script = ExtResource("1_nub35")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=286976947]
+position = Vector2(-2, -1)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_8g0i4")
 

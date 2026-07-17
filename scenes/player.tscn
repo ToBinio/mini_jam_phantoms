@@ -31,10 +31,11 @@ func _physics_process(delta: float) -> void:
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
-radius = 5.0
-height = 20.0
+radius = 12.0
+height = 42.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1754042684]
+collision_layer = 0
 script = SubResource("GDScript_0s3u6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=823401576]

@@ -9,15 +9,23 @@
 
 [node name="Fish" parent="." unique_id=1754323588 instance=ExtResource("1_0wfyh")]
 position = Vector2(-103, 77)
+speed = 100.0
+acceleration = 200.0
 
 [node name="Fish2" parent="." unique_id=878536798 instance=ExtResource("1_0wfyh")]
 position = Vector2(229, 143)
+speed = 100.0
+acceleration = 200.0
 
 [node name="Fish3" parent="." unique_id=1186615477 instance=ExtResource("1_0wfyh")]
 position = Vector2(288, -173)
+speed = 100.0
+acceleration = 200.0
 
 [node name="Fish4" parent="." unique_id=1572494053 instance=ExtResource("1_0wfyh")]
 position = Vector2(-378, -205)
+speed = 100.0
+acceleration = 200.0
 
 [node name="Player" parent="." unique_id=792900258 instance=ExtResource("1_o5qli")]
 script = ExtResource("2_0wfyh")
