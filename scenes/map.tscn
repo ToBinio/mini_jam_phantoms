@@ -264,4 +264,4 @@ position = Vector2(-294, 122)
 position = Vector2(30, 467)
 
 [node name="ExplodableRocks" parent="." unique_id=1996274110 instance=ExtResource("5_2klcf")]
-position = Vector2(1032, 1584)
+position = Vector2(299, 290)

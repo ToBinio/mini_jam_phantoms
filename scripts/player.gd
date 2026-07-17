@@ -16,7 +16,6 @@ func _ready() -> void:
 	original_texture = $Sprite2D.texture
 
 func _physics_process(delta: float) -> void:
-	
 	if Input.is_action_just_pressed("phantom"):
 		if $Sprite2D.texture == original_texture:
 			possess_nearby_body()
@@ -24,9 +23,7 @@ func _physics_process(delta: float) -> void:
 			leave_body()
 			
 	if Input.is_action_just_pressed("interact"):
-		print("hi")
 		for group in get_groups():
-			print(group)
 			match group.get_basename():
 				"Pufferfish":
 					pufferfish_ability()
@@ -67,6 +64,8 @@ func possess_nearby_body():
 		
 		if body == self:
 			continue
+			
+		print("hello")
 		
 		var other_sprite = body.get_node("Sprite2D")
 		var my_sprite = $Sprite2D
@@ -101,7 +100,6 @@ func leave_body():
 	
 	for group in new_body.get_groups():
 		remove_from_group(group)
-		print(group.get_basename())
 		
 	add_to_group("Player")
 	
@@ -110,11 +108,18 @@ func leave_body():
 	
 	
 func pufferfish_ability():
+	shape_cast_2d.force_shapecast_update()
+	
+	for i in shape_cast_2d.get_collision_count():
+		var body = shape_cast_2d.get_collider(i)
+		if body == self:
+			continue
+		
+		body.queue_free()
 	var new_body = possessed_body_scene.instantiate()
 	
 	for group in new_body.get_groups():
 		remove_from_group(group)
-		print(group.get_basename())
 		
 	add_to_group("Player")
 	
