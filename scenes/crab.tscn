@@ -1,16 +1,10 @@
 [gd_scene format=3 uid="uid://cop5f0sn8x6d0"]
 
 [ext_resource type="Script" uid="uid://oa67fptbrnrk" path="res://scripts/fish/Crab.gd" id="1_rq6vx"]
-[ext_resource type="Texture2D" uid="uid://cli57qw61sucw" path="res://assets/fish.png" id="2_83q5x"]
-[ext_resource type="Script" uid="uid://b2twrtvcwy5v8" path="res://scripts/fish/fish_sprite.gd" id="3_rftv6"]
+[ext_resource type="Texture2D" uid="uid://bmf25bj6d6ufs" path="res://assets/crab.png" id="2_rq6vx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pgks6"]
 radius = 16.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nub35"]
-resource_local_to_scene = true
-atlas = ExtResource("2_83q5x")
-region = Rect2(0, 0, 16, 16)
 
 [node name="Crab" type="CharacterBody2D" unique_id=1754323588 groups=["Crab"]]
 collision_layer = 2
@@ -25,9 +19,7 @@ shape = SubResource("CircleShape2D_pgks6")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1462247697]
 scale = Vector2(3, 3)
-texture = SubResource("AtlasTexture_nub35")
-script = ExtResource("3_rftv6")
-number_of_sprites = 2
+texture = ExtResource("2_rq6vx")
 
 [node name="RightCast" type="RayCast2D" parent="." unique_id=298850568]
 position = Vector2(32, 0)
