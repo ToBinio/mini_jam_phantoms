@@ -14,8 +14,11 @@ atlas = ExtResource("1_n6yr6")
 region = Rect2(0, 0, 16, 16)
 
 [node name="Fish" type="CharacterBody2D" unique_id=1754323588]
-collision_layer = 0
+collision_layer = 2
 script = ExtResource("1_nub35")
+speed = 100.0
+friction = 300.0
+acceleration = 200.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=286976947]
 rotation = 1.5707964
