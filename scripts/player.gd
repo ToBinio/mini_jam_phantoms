@@ -7,10 +7,20 @@ extends CharacterBody2D
 
 @onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 
+var original_texture: Texture2D
+
+var possessed_body_scene: PackedScene
+
+func _ready() -> void:
+	original_texture = $Sprite2D.texture
+
 func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("ui_accept"):
-		possess_nearby_sprite()
+		if $Sprite2D.texture == original_texture:
+			possess_nearby_body()
+		else:
+			leave_body()
 	
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if direction != Vector2.ZERO:
@@ -27,7 +37,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func possess_nearby_sprite():
+func possess_nearby_body():
 	shape_cast_2d.force_shapecast_update()
 	
 	for i in shape_cast_2d.get_collision_count():
@@ -39,6 +49,8 @@ func possess_nearby_sprite():
 		var other_sprite = body.get_node("Sprite2D")
 		var my_sprite = $Sprite2D
 		
+		possessed_body_scene = preload("res://scenes/fish.tscn")
+		
 		my_sprite.texture = other_sprite.texture
 		my_sprite.flip_h = other_sprite.flip_h
 		
@@ -47,3 +59,12 @@ func possess_nearby_sprite():
 		global_position = body.global_position
 		
 		break
+		
+func leave_body():
+	var new_body = possessed_body_scene.instantiate()
+	
+	new_body.global_position = global_position
+	get_parent().add_child(new_body)
+	new_body.get_node("Sprite2D").texture = $Sprite2D.texture
+	
+	$Sprite2D.texture = original_texture
