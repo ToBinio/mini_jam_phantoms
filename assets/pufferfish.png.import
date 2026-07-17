@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hcwuntt38avx"
-path="res://.godot/imported/circle_PNG63.png-e2ac4d035b0c94a1b05e7790795a1fab.ctex"
+uid="uid://o3nigsa0anlu"
+path="res://.godot/imported/pufferfish.png-0814a61815b9a8a796feab99ed913acd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/circle_PNG63.png"
-dest_files=["res://.godot/imported/circle_PNG63.png-e2ac4d035b0c94a1b05e7790795a1fab.ctex"]
+source_file="res://assets/pufferfish.png"
+dest_files=["res://.godot/imported/pufferfish.png-0814a61815b9a8a796feab99ed913acd.ctex"]
 
 [params]
 
