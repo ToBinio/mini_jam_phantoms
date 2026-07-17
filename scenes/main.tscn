@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://n7o0oi5knu64"]
 
 [ext_resource type="PackedScene" uid="uid://c1xwhsvwbtyru" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://bhsmow5701nn4" path="res://scenes/player.gd" id="2_0wfyh"]
 
 [node name="Main" type="Node2D" unique_id=1102283499]
 
-[node name="Player" parent="." unique_id=792900258 instance=ExtResource("1_o5qli")]
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1637750593]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1637750593]
 position_smoothing_enabled = true
+
+[node name="Player" parent="." unique_id=792900258 instance=ExtResource("1_o5qli")]
+script = ExtResource("2_0wfyh")
+speed = 300.0
+friction = 800.0
+acceleration = 700.0
