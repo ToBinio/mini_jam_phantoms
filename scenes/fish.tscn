@@ -19,6 +19,7 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_8g0i4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1462247697]
+scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_nub35")
 script = ExtResource("2_8g0i4")
 number_of_sprites = 2
