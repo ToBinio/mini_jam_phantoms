@@ -4,9 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cli57qw61sucw" path="res://assets/fish.png" id="2_83q5x"]
 [ext_resource type="Script" uid="uid://b2twrtvcwy5v8" path="res://scripts/fish/fish_sprite.gd" id="3_rftv6"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nub35"]
-radius = 15.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_pgks6"]
 radius = 16.0
 
@@ -18,9 +15,9 @@ region = Rect2(0, 0, 16, 16)
 [node name="Crab" type="CharacterBody2D" unique_id=1754323588 groups=["Crab"]]
 collision_layer = 2
 script = ExtResource("1_rq6vx")
-
-[node name="RayCast2D" type="ShapeCast2D" parent="." unique_id=1417882680]
-shape = SubResource("CircleShape2D_nub35")
+speed = 20.0
+friction = 50.0
+acceleration = 50.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=286976947]
 rotation = 1.5707964
@@ -31,3 +28,19 @@ scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_nub35")
 script = ExtResource("3_rftv6")
 number_of_sprites = 2
+
+[node name="RightCast" type="RayCast2D" parent="." unique_id=298850568]
+position = Vector2(32, 0)
+target_position = Vector2(0, 30)
+
+[node name="RightCastStraight" type="RayCast2D" parent="." unique_id=447910627]
+position = Vector2(22, 0)
+target_position = Vector2(10, 0)
+
+[node name="LeftCast" type="RayCast2D" parent="." unique_id=1252813310]
+position = Vector2(-32, 0)
+target_position = Vector2(0, 30)
+
+[node name="LeftCastStraight" type="RayCast2D" parent="." unique_id=1972348432]
+position = Vector2(-22, 0)
+target_position = Vector2(-10, 0)
