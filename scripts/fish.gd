@@ -18,6 +18,11 @@ func _physics_process(delta: float) -> void:
 		choose_new_target()
 	
 	velocity = velocity.move_toward(direction*speed, acceleration * delta)
+	
+	if velocity.x > 0:
+		$Sprite2D.flip_h = false
+	elif velocity.x < 0:
+		$Sprite2D.flip_h = true
 
 	move_and_slide()
 
