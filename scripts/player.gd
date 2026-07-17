@@ -12,6 +12,7 @@ extends CharacterBody2D
 var original_texture: Texture2D
 var original_light_energy: float
 var original_light_color: Color
+var original_light_texture_scale: float
 
 var possessed_body_scene: PackedScene
 
@@ -19,6 +20,7 @@ func _ready() -> void:
 	original_texture = $Sprite2D.texture
 	original_light_energy = $PointLight2D.energy
 	original_light_color = $PointLight2D.color
+	original_light_texture_scale = $PointLight2D.texture_scale
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("phantom"):
@@ -94,10 +96,8 @@ func possess_nearby_body():
 		if body.is_in_group("Lanternfish"):
 			$PointLight2D.color = other_light.color
 			$PointLight2D.energy = other_light.energy
+			$PointLight2D.texture_scale = other_light.texture_scale
 			
-			
-			
-		
 		body.queue_free()
 		
 		global_position = body.global_position
@@ -120,6 +120,7 @@ func leave_body():
 	$Sprite2D.texture = original_texture
 	$PointLight2D.color = original_light_color
 	$PointLight2D.energy = original_light_energy
+	$PointLight2D.texture_scale = original_light_texture_scale
 	
 	particles.emitting = true
 	
