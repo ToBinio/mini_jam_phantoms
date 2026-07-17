@@ -12,6 +12,9 @@ radius = 22.0
 [node name="Pufferfish" type="CharacterBody2D" unique_id=1754323588 groups=["Pufferfish"]]
 collision_layer = 2
 script = ExtResource("1_kn2uh")
+speed = 150.0
+acceleration = 100.0
+max_movement_distance = 50
 
 [node name="RayCast2D" type="ShapeCast2D" parent="." unique_id=1417882680]
 shape = SubResource("CircleShape2D_nub35")

@@ -19,6 +19,9 @@ region = Rect2(0, 0, 16, 16)
 [node name="Lanternfish" type="CharacterBody2D" unique_id=1754323588 groups=["Lanternfish"]]
 collision_layer = 2
 script = ExtResource("3_a75x8")
+speed = 50.0
+acceleration = 100.0
+max_movement_distance = 50
 
 [node name="RayCast2D" type="ShapeCast2D" parent="." unique_id=1417882680]
 shape = SubResource("CircleShape2D_nub35")
@@ -34,7 +37,7 @@ script = ExtResource("3_bthd0")
 number_of_sprites = 2
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=867516648]
-color = Color(1, 1, 0.2509804, 1)
+color = Color(0.6094, 0.75594205, 0.21681923, 1)
 energy = 2.0
 texture = ExtResource("4_b51bv")
 texture_scale = 3.0

@@ -20,8 +20,8 @@ collision_layer = 2
 script = ExtResource("1_nub35")
 speed = 100.0
 friction = 300.0
-acceleration = 200.0
-max_movement_distance = 500
+acceleration = 100.0
+max_movement_distance = 200
 
 [node name="RayCast2D" type="ShapeCast2D" parent="." unique_id=1417882680]
 shape = SubResource("CircleShape2D_nub35")
