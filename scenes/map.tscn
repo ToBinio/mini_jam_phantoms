@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cv3egb33caytm" path="res://assets/deco.png" id="2_0cso3"]
 [ext_resource type="Texture2D" uid="uid://cwp82oi6es6c2" path="res://assets/walls.png" id="3_2klcf"]
 [ext_resource type="PackedScene" uid="uid://cop5f0sn8x6d0" path="res://scenes/crab.tscn" id="4_0cso3"]
+[ext_resource type="PackedScene" uid="uid://csthi8xaw6in8" path="res://scenes/explodable_rocks.tscn" id="5_2klcf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6xl0"]
 texture = ExtResource("2_0cso3")
@@ -261,3 +262,6 @@ position = Vector2(-294, 122)
 
 [node name="Crab3" parent="." unique_id=848696070 instance=ExtResource("4_0cso3")]
 position = Vector2(30, 467)
+
+[node name="ExplodableRocks" parent="." unique_id=1996274110 instance=ExtResource("5_2klcf")]
+position = Vector2(1032, 1584)

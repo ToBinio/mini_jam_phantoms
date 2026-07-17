@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://csthi8xaw6in8"]
+
+[ext_resource type="Texture2D" uid="uid://cwhykfniirjmo" path="res://assets/rocks.png" id="1_a2282"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqjp7"]
+size = Vector2(48, 96)
+
+[node name="ExplodableRocks" type="StaticBody2D" unique_id=1996274110]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2048152328]
+shape = SubResource("RectangleShape2D_kqjp7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=704430469]
+scale = Vector2(3, 3)
+texture = ExtResource("1_a2282")

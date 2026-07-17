@@ -9,7 +9,6 @@
 [node name="Map" parent="." unique_id=924707633 instance=ExtResource("1_jyhfs")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=439643842]
-visible = false
 position = Vector2(252, 224)
 color = Color(0, 0, 0.13333334, 1)
 
