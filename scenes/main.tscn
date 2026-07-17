@@ -134,28 +134,38 @@ position_smoothing_enabled = true
 script = ExtResource("1_sugp2")
 player = NodePath("../Player")
 
-[node name="Fish" parent="." unique_id=1754323588 instance=ExtResource("1_0wfyh")]
-position = Vector2(-103, 77)
-speed = 100.0
-acceleration = 200.0
-
-[node name="Fish2" parent="." unique_id=878536798 instance=ExtResource("1_0wfyh")]
-position = Vector2(229, 143)
-speed = 100.0
-acceleration = 200.0
-
-[node name="Fish3" parent="." unique_id=1186615477 instance=ExtResource("1_0wfyh")]
-position = Vector2(394, 86)
-speed = 100.0
-acceleration = 200.0
-
-[node name="Fish4" parent="." unique_id=1572494053 instance=ExtResource("1_0wfyh")]
-position = Vector2(247, -39)
-speed = 100.0
-acceleration = 200.0
-
 [node name="Player" parent="." unique_id=792900258 instance=ExtResource("1_o5qli")]
 script = ExtResource("2_0wfyh")
 speed = 300.0
 friction = 800.0
 acceleration = 700.0
+
+[node name="Fish6" parent="." unique_id=1493370771 instance=ExtResource("1_0wfyh")]
+position = Vector2(252, 224)
+
+[node name="Fish7" parent="." unique_id=1754323588 instance=ExtResource("1_0wfyh")]
+position = Vector2(252, 224)
+
+[node name="Fish8" parent="." unique_id=891228947 instance=ExtResource("1_0wfyh")]
+position = Vector2(252, 224)
+
+[node name="Fish9" parent="." unique_id=251390080 instance=ExtResource("1_0wfyh")]
+position = Vector2(252, 224)
+
+[node name="Fish10" parent="." unique_id=142611837 instance=ExtResource("1_0wfyh")]
+position = Vector2(252, 224)
+
+[node name="Fish11" parent="." unique_id=503406302 instance=ExtResource("1_0wfyh")]
+position = Vector2(252, 224)
+
+[node name="Fish12" parent="." unique_id=1935870909 instance=ExtResource("1_0wfyh")]
+position = Vector2(252, 224)
+
+[node name="Fish13" parent="." unique_id=1446578245 instance=ExtResource("1_0wfyh")]
+position = Vector2(252, 224)
+
+[node name="Fish14" parent="." unique_id=1100413555 instance=ExtResource("1_0wfyh")]
+position = Vector2(252, 224)
+
+[node name="Fish15" parent="." unique_id=498900874 instance=ExtResource("1_0wfyh")]
+position = Vector2(252, 224)
