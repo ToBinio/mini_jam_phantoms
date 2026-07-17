@@ -12,8 +12,12 @@ config_version=5
 
 config/name="Mini Jam Phantoms"
 run/main_scene="uid://n7o0oi5knu64"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[global_group]
+
+Pufferfish=""
 
 [physics]
 

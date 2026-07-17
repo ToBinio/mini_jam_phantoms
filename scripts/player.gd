@@ -49,7 +49,10 @@ func possess_nearby_body():
 		var other_sprite = body.get_node("Sprite2D")
 		var my_sprite = $Sprite2D
 		
-		possessed_body_scene = preload("res://scenes/fish.tscn")
+		if body.is_in_group("Pufferfish"):
+			possessed_body_scene = preload("res://scenes/pufferfish.tscn")
+		else:
+			possessed_body_scene = preload("res://scenes/fish.tscn")
 		
 		my_sprite.texture = other_sprite.texture
 		my_sprite.flip_h = other_sprite.flip_h
@@ -63,8 +66,10 @@ func possess_nearby_body():
 func leave_body():
 	var new_body = possessed_body_scene.instantiate()
 	
-	new_body.global_position = global_position
-	get_parent().add_child(new_body)
-	new_body.get_node("Sprite2D").texture = $Sprite2D.texture
+	if !new_body.is_in_group("Pufferfish"):
+		print(new_body.get_groups())
+		new_body.global_position = global_position
+		get_parent().add_child(new_body)
+		new_body.get_node("Sprite2D").texture = $Sprite2D.texture
 	
 	$Sprite2D.texture = original_texture
