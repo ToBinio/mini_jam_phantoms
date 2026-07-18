@@ -4,7 +4,7 @@ extends StaticBody2D
 
 @export var is_up: bool = true
 
-@export var door: Door
+@export var doors: Array[Door]
 
 func _physics_process(delta):
 	var bodies = area_2d.get_overlapping_bodies()
@@ -23,11 +23,15 @@ func _ready() -> void:
 		down()
 
 func up() -> void:
-	door.close()
+	toogle_doors()
 	is_up = true
 	animation_player.play("up")
 
 func down() -> void:
-	door.open()
+	toogle_doors()
 	is_up = false
 	animation_player.play("down")
+	
+func toogle_doors() -> void:
+	for door in doors:
+		door.change_state()

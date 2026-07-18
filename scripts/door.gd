@@ -10,6 +10,12 @@ func _ready() -> void:
 		open()
 	else:
 		close()
+		
+func change_state() -> void:
+	if is_open:
+		close()
+	else: 
+		open()
 
 func open() -> void:
 	is_open = true
