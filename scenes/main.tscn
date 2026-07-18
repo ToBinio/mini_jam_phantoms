@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cfo7xrly4e6tq" path="res://scripts/camera.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dummjvudkaf50" path="res://scenes/pufferfish.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cya1cdwmrn1mv" path="res://scenes/lanternfish.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bs0u36l863b6v" path="res://scenes/key.tscn" id="6_tefeu"]
 
 [node name="Main" type="Node2D" unique_id=1102283499]
 
@@ -25,3 +26,7 @@ acceleration = 700.0
 [node name="Pufferfish" parent="." unique_id=1754323588 instance=ExtResource("4_jyhfs")]
 
 [node name="Lanternfish" parent="." unique_id=6511546 instance=ExtResource("5_tbgi4")]
+
+[node name="Key" parent="." unique_id=747457996 node_paths=PackedStringArray("following") instance=ExtResource("6_tefeu")]
+position = Vector2(-22, 111)
+following = NodePath("../Player")

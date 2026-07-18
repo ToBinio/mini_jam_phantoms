@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bs0u36l863b6v"]
+
+[ext_resource type="Script" uid="uid://cpiuei1usktby" path="res://scripts/key.gd" id="1_fttkb"]
+[ext_resource type="Texture2D" uid="uid://da671lhc2vni4" path="res://assets/key.png" id="1_yk2u2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fttkb"]
+
+[node name="Key" type="CharacterBody2D" unique_id=747457996]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_fttkb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2125811300]
+scale = Vector2(3, 3)
+texture = ExtResource("1_yk2u2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=12798629]
+position = Vector2(-3, 4)
+shape = SubResource("CircleShape2D_fttkb")
