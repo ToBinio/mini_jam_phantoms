@@ -16,6 +16,9 @@ var current_visual: Node2D
 
 func _ready() -> void:
 	current_visual = $Visual
+	
+	await get_tree().physics_frame
+	choose_new_target()
 
 func _physics_process(delta: float) -> void:
 	var direction := global_position.direction_to(target_position)
