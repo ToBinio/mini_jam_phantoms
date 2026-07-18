@@ -4,16 +4,21 @@ extends CharacterBody2D
 @export var friction = 800.0
 @export var acceleration = 400.0
 @export var jump_velocity = -400
+@export var visual_scene: PackedScene
+
 
 @onready var right_cast: RayCast2D = $RightCast
 @onready var right_cast_straight: RayCast2D = $RightCastStraight
 @onready var left_cast: RayCast2D = $LeftCast
 @onready var left_cast_straight: RayCast2D = $LeftCastStraight
 
+var current_visual: Node2D
+	
 var moving_left: bool
 
 func _ready() -> void:
 	moving_left = randf() > 0.5
+	current_visual = $Visual
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -32,8 +37,8 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.move_toward(direction*speed, acceleration * delta)
 	
 	if velocity.x > 0:
-		$Sprite2D.flip_h = false
+		current_visual.get_node("Sprite2D").flip_h = false
 	elif velocity.x < 0:
-		$Sprite2D.flip_h = true
+		current_visual.get_node("Sprite2D").flip_h = true
 
 	move_and_slide()

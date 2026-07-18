@@ -29,6 +29,29 @@ acceleration = 700.0
 
 [node name="Lanternfish" parent="." unique_id=6511546 instance=ExtResource("5_tbgi4")]
 
+<<<<<<< Updated upstream
 [node name="Key" parent="." unique_id=747457996 node_paths=PackedStringArray("following") instance=ExtResource("6_tefeu")]
 position = Vector2(-21, 115)
 following = NodePath("../Player")
+=======
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=292142929]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=213922801]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=969513269]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+horizontal_alignment = 1
+>>>>>>> Stashed changes

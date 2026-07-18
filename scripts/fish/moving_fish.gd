@@ -10,6 +10,13 @@ extends CharacterBody2D
 
 @export var target_position := Vector2.ZERO
 
+@export var visual_scene: PackedScene
+
+var current_visual: Node2D
+
+func _ready() -> void:
+	current_visual = $Visual
+
 func _physics_process(delta: float) -> void:
 	var direction := global_position.direction_to(target_position)
 	
@@ -19,9 +26,9 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.move_toward(direction*speed, acceleration * delta)
 	
 	if velocity.x > 0:
-		$Sprite2D.flip_h = false
+		current_visual.get_node("Sprite2D").flip_h = false
 	elif velocity.x < 0:
-		$Sprite2D.flip_h = true
+		current_visual.get_node("Sprite2D").flip_h = true
 
 	move_and_slide()
 

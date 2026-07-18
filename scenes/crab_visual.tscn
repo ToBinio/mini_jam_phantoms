@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ck26h0ci0ka7"]
+
+[ext_resource type="Texture2D" uid="uid://bmf25bj6d6ufs" path="res://assets/crab.png" id="1_dhf0p"]
+
+[node name="Node2D" type="Node2D" unique_id=139052648]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=664033343]
+scale = Vector2(3, 3)
+texture = ExtResource("1_dhf0p")

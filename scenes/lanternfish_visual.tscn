@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d12510ll8k8ys"]
+
+[ext_resource type="Texture2D" uid="uid://dyqbi03o8cu0r" path="res://assets/lanternfish.png" id="1_a44um"]
+[ext_resource type="Texture2D" uid="uid://chmfpncmfqa0d" path="res://assets/2d_lights_and_shadows_neutral_point_light.webp" id="2_prirx"]
+
+[node name="Visual" type="Node2D" unique_id=911019173]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1375478841]
+scale = Vector2(3, 3)
+texture = ExtResource("1_a44um")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1748281980]
+color = Color(0.3372549, 0.58431375, 0.8039216, 1)
+texture = ExtResource("2_prirx")
+texture_scale = 3.0

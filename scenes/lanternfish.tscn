@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://cya1cdwmrn1mv"]
 
-[ext_resource type="Texture2D" uid="uid://dyqbi03o8cu0r" path="res://assets/lanternfish.png" id="2_b51bv"]
+[ext_resource type="PackedScene" uid="uid://d12510ll8k8ys" path="res://scenes/lanternfish_visual.tscn" id="2_xs7xs"]
 [ext_resource type="Script" uid="uid://dobodpa6khtk7" path="res://scripts/fish/lanternfish.gd" id="3_a75x8"]
-[ext_resource type="Texture2D" uid="uid://chmfpncmfqa0d" path="res://assets/2d_lights_and_shadows_neutral_point_light.webp" id="4_b51bv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nub35"]
 radius = 15.0
@@ -16,6 +15,7 @@ script = ExtResource("3_a75x8")
 speed = 50.0
 acceleration = 100.0
 max_movement_distance = 50
+visual_scene = ExtResource("2_xs7xs")
 
 [node name="RayCast2D" type="ShapeCast2D" parent="." unique_id=1417882680]
 shape = SubResource("CircleShape2D_nub35")
@@ -24,11 +24,4 @@ shape = SubResource("CircleShape2D_nub35")
 rotation = 1.5707964
 shape = SubResource("CircleShape2D_pgks6")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1462247697]
-scale = Vector2(3, 3)
-texture = ExtResource("2_b51bv")
-
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=867516648]
-color = Color(0.33549502, 0.5843116, 0.80315787, 1)
-texture = ExtResource("4_b51bv")
-texture_scale = 3.0
+[node name="Visual" parent="." unique_id=911019173 instance=ExtResource("2_xs7xs")]

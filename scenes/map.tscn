@@ -318,9 +318,15 @@ position = Vector2(299, 290)
 [node name="Door" parent="Obj" unique_id=1117986891 instance=ExtResource("6_2lpho")]
 position = Vector2(228, 248)
 
+<<<<<<< Updated upstream
 [node name="Button" parent="Obj" unique_id=1636582900 node_paths=PackedStringArray("doors") instance=ExtResource("7_nakos")]
 position = Vector2(80, 264)
 doors = [NodePath("../Door")]
+=======
+[node name="Button" parent="Obj" unique_id=1636582900 node_paths=PackedStringArray("door") instance=ExtResource("7_nakos")]
+position = Vector2(-118, 336)
+door = NodePath("../Door")
+>>>>>>> Stashed changes
 
 [node name="Box" parent="Obj" unique_id=519831776 instance=ExtResource("9_be0no")]
 position = Vector2(-230, 36)

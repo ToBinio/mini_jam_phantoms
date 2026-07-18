@@ -6,30 +6,32 @@ extends CharacterBody2D
 @export var acceleration = 400.0
 @export var jump_velocity = -400.0
 @export var push_force = 80.0
-
-@onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
-@onready var particles: GPUParticles2D = $Particles
-
-
-var original_texture: Texture2D
-var original_light_energy: float
-var original_light_color: Color
-var original_light_texture_scale: float
-
+@export var visual_scene: PackedScene
 var possessed_body_scene: PackedScene
 
+@onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
+@onready var label: Label = $"../CanvasLayer/Control/Label"
+
+var original_visual_scene: PackedScene
+var original_visual: Node2D
+var current_visual: Node2D
+
+var is_possessing := false
+
 func _ready() -> void:
-	original_texture = $Sprite2D.texture
-	original_light_energy = $PointLight2D.energy
-	original_light_color = $PointLight2D.color
-	original_light_texture_scale = $PointLight2D.texture_scale
+	original_visual_scene = visual_scene
+	current_visual = $Visual
+	original_visual = $Visual
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("phantom"):
-		if $Sprite2D.texture == original_texture:
+		print(is_possessing)
+		if !is_possessing:
+			print("hi")
 			possess_nearby_body()
 		else:
 			leave_body()
+
 			
 	if Input.is_action_just_pressed("interact"):
 		for group in get_groups():
@@ -60,9 +62,9 @@ func _physics_process(delta: float) -> void:
 			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 		
 		if velocity.x > 0:
-			$Sprite2D.flip_h = false
+			current_visual.get_node("Sprite2D").flip_h = false
 		elif velocity.x < 0:
-			$Sprite2D.flip_h = true
+			current_visual.get_node("Sprite2D").flip_h = true
 	
 	move_and_slide()
 	
@@ -81,36 +83,33 @@ func possess_nearby_body():
 		if body == self:
 			continue
 		
-		var other_sprite = body.get_node("Sprite2D")
-		var my_sprite = $Sprite2D
-		
 		remove_from_group("Player")
 		
 		for group in body.get_groups():
+			match group.get_basename():
+				"Pufferfish":
+					label.text = "Can explode and destroy unstable structure"
+					possessed_body_scene = preload("res://scenes/pufferfish.tscn")
+				"Crab":
+					label.text = "Can jump and interact with certain objects"
+					possessed_body_scene = preload("res://scenes/crab.tscn")
+				"Lanternfish":
+					label.text = "Can light out the way"
+					possessed_body_scene = preload("res://scenes/lanternfish.tscn")
+				"Fish":
+					label.text = "Can Swim"
+					possessed_body_scene = preload("res://scenes/fish.tscn")
 			add_to_group(group)
 		
-		if body.is_in_group("Pufferfish"):
-			possessed_body_scene = preload("res://scenes/pufferfish.tscn")
-		elif body.is_in_group("Crab"):
-			possessed_body_scene = preload("res://scenes/crab.tscn")
-		elif body.is_in_group("Lanternfish"):
-			possessed_body_scene = preload("res://scenes/lanternfish.tscn")
-		else:
-			possessed_body_scene = preload("res://scenes/fish.tscn")
+
+		print("possess")
+		change_visual(body.visual_scene)
 		
-		my_sprite.texture = other_sprite.texture
-		my_sprite.flip_h = other_sprite.flip_h
-		
-		if body.is_in_group("Lanternfish"):
-			var other_light = body.get_node("PointLight2D")
-			$PointLight2D.color = other_light.color
-			$PointLight2D.energy = other_light.energy
-			$PointLight2D.texture_scale = other_light.texture_scale
-			
-		body.queue_free()
+		is_possessing = true
 		
 		global_position = body.global_position
-		particles.emitting = false
+		
+		body.queue_free()
 		
 		break
 		
@@ -119,19 +118,31 @@ func leave_body():
 	
 	new_body.global_position = global_position
 	get_parent().add_child(new_body)
-	new_body.get_node("Sprite2D").texture = $Sprite2D.texture
+
 	
 	for group in new_body.get_groups():
 		remove_from_group(group)
 		
+	print("leave")
+	change_visual(original_visual_scene)
+	
+	is_possessing = false
+	
+	label.text = ""
 	add_to_group("Player")
 	
-	$Sprite2D.texture = original_texture
-	$PointLight2D.color = original_light_color
-	$PointLight2D.energy = original_light_energy
-	$PointLight2D.texture_scale = original_light_texture_scale
+func change_visual(new_visual_scene: PackedScene):
+	print(current_visual)
+	if is_instance_valid(current_visual):
+		current_visual.queue_free()
+
+	current_visual = new_visual_scene.instantiate()
 	
-	particles.emitting = true
+	print(current_visual)
+
+	add_child(current_visual)
+
+	
 	
 func pufferfish_ability():
 	shape_cast_2d.force_shapecast_update()
@@ -142,29 +153,25 @@ func pufferfish_ability():
 			continue
 		
 		body.queue_free()
-	var new_body = possessed_body_scene.instantiate()
+	var new_body = visual_scene.instantiate()
 	
 	for group in new_body.get_groups():
 		remove_from_group(group)
 		
 	add_to_group("Player")
 	
-	$Sprite2D.texture = original_texture
-	
 func crab_ability():
 	shape_cast_2d.force_shapecast_update()
 	
 	for i in shape_cast_2d.get_collision_count():
 		var body = shape_cast_2d.get_collider(i)
+		
 		if body == self:
 			continue
 		
 		for group in body.get_groups():
 			if body.is_in_group("Lever"):
-				print("Worked")
 				if body.is_left:
-					print("right")
 					body.right()
 				else:
-					print("left")
 					body.left()

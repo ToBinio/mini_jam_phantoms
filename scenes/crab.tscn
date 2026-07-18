@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cop5f0sn8x6d0"]
 
 [ext_resource type="Script" uid="uid://oa67fptbrnrk" path="res://scripts/fish/Crab.gd" id="1_rq6vx"]
-[ext_resource type="Texture2D" uid="uid://bmf25bj6d6ufs" path="res://assets/crab.png" id="2_rq6vx"]
+[ext_resource type="PackedScene" uid="uid://ck26h0ci0ka7" path="res://scenes/crab_visual.tscn" id="2_2b8bq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pgks6"]
 radius = 16.0
@@ -12,14 +12,11 @@ script = ExtResource("1_rq6vx")
 speed = 20.0
 friction = 50.0
 acceleration = 50.0
+visual_scene = ExtResource("2_2b8bq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=286976947]
 rotation = 1.5707964
 shape = SubResource("CircleShape2D_pgks6")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1462247697]
-scale = Vector2(3, 3)
-texture = ExtResource("2_rq6vx")
 
 [node name="RightCast" type="RayCast2D" parent="." unique_id=298850568]
 position = Vector2(32, 0)
@@ -36,3 +33,5 @@ target_position = Vector2(0, 30)
 [node name="LeftCastStraight" type="RayCast2D" parent="." unique_id=1972348432]
 position = Vector2(-22, 0)
 target_position = Vector2(-10, 0)
+
+[node name="Visual" parent="." unique_id=139052648 instance=ExtResource("2_2b8bq")]
