@@ -3,6 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://f4da0hem1atq" path="res://assets/character.png" id="1_sgano"]
 [ext_resource type="Texture2D" uid="uid://qpu1pqq4456n" path="res://assets/pixel.png" id="3_xf07o"]
 
+[sub_resource type="Curve" id="Curve_hscis"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.74225664, 0.49137926), 0.0, 0.0, 0, 0, Vector2(1, 0.020089388), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_i2jc5"]
+curve = SubResource("Curve_hscis")
+
 [sub_resource type="Curve" id="Curve_dqkch"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.13575268, 1), 0.0, 0.0, 0, 0, Vector2(0.9758065, 0), -2.6433024, 0.0, 0, 0]
 point_count = 3
@@ -14,7 +21,7 @@ curve = SubResource("Curve_dqkch")
 lifetime_randomness = 0.5
 particle_flag_disable_z = true
 emission_shape = 1
-emission_sphere_radius = 7.81
+emission_sphere_radius = 14.92
 angle_min = 1.0728835e-05
 angle_max = 360.00003
 inherit_velocity_ratio = -0.1
@@ -25,6 +32,7 @@ gravity = Vector3(0, -4, 0)
 scale_min = 3.0
 scale_max = 3.0
 scale_curve = SubResource("CurveTexture_dqkch")
+alpha_curve = SubResource("CurveTexture_i2jc5")
 
 [node name="visual" type="Node2D" unique_id=2071670507]
 
@@ -33,8 +41,8 @@ scale = Vector2(3, 3)
 texture = ExtResource("1_sgano")
 
 [node name="Particles" type="GPUParticles2D" parent="." unique_id=540154899]
-position = Vector2(0, 10)
-amount = 32
+position = Vector2(-1, 8)
+amount = 48
 texture = ExtResource("3_xf07o")
 lifetime = 3.0
 local_coords = true
