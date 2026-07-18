@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cop5f0sn8x6d0" path="res://scenes/crab.tscn" id="4_0cso3"]
 [ext_resource type="PackedScene" uid="uid://csthi8xaw6in8" path="res://scenes/explodable_rocks.tscn" id="5_2klcf"]
 [ext_resource type="PackedScene" uid="uid://xniqmwoetya3" path="res://scenes/door.tscn" id="6_2lpho"]
+[ext_resource type="PackedScene" uid="uid://b43o0p0pppt84" path="res://scenes/button.tscn" id="7_nakos"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6xl0"]
 texture = ExtResource("2_0cso3")
@@ -269,3 +270,6 @@ position = Vector2(299, 290)
 
 [node name="Door" parent="." unique_id=1117986891 instance=ExtResource("6_2lpho")]
 position = Vector2(469, 212)
+
+[node name="Button" parent="." unique_id=1636582900 instance=ExtResource("7_nakos")]
+position = Vector2(-114, 338)
