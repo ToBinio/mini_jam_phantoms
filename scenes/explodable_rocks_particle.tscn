@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://ey0eeecqbofs"]
+
+[ext_resource type="Texture2D" uid="uid://cynvip3d6m7rn" path="res://assets/rocks_particles.png" id="1_t2uxm"]
+[ext_resource type="Script" uid="uid://bvh7e3ftjo372" path="res://scenes/particle_self_delete.gd" id="2_2eeqw"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gx40d"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_2eeqw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.69800884, 1), 0.0, 0.0, 0, 0, Vector2(0.9413716, 0), -3.3951244, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_t2uxm"]
+curve = SubResource("Curve_2eeqw")
+
+[sub_resource type="Curve" id="Curve_t2uxm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7920354, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_jb02v"]
+curve = SubResource("Curve_t2uxm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2eeqw"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(24.469, 36.807, 1)
+inherit_velocity_ratio = -0.231
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 32.05
+initial_velocity_max = 73.26
+gravity = Vector3(0, 98, 0)
+scale_min = 3.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_jb02v")
+alpha_curve = SubResource("CurveTexture_t2uxm")
+anim_offset_max = 1.0
+turbulence_enabled = true
+collision_mode = 1
+collision_friction = 0.5
+collision_bounce = 0.0
+collision_use_scale = true
+
+[node name="ExplodableRocksParticle" type="GPUParticles2D" unique_id=1770412637]
+material = SubResource("CanvasItemMaterial_gx40d")
+emitting = false
+texture = ExtResource("1_t2uxm")
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+collision_base_size = 0.2
+process_material = SubResource("ParticleProcessMaterial_2eeqw")
+script = ExtResource("2_2eeqw")

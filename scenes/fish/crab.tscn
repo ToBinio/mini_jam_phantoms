@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cop5f0sn8x6d0"]
 
 [ext_resource type="Script" uid="uid://oa67fptbrnrk" path="res://scripts/fish/Crab.gd" id="1_rq6vx"]
-[ext_resource type="PackedScene" uid="uid://ck26h0ci0ka7" path="res://scenes/crab_visual.tscn" id="2_2b8bq"]
+[ext_resource type="PackedScene" uid="uid://ck26h0ci0ka7" path="res://scenes/fish/crab_visual.tscn" id="2_2b8bq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pgks6"]
 radius = 16.0

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dummjvudkaf50"]
 
 [ext_resource type="Script" uid="uid://bvgwo6no0ovoe" path="res://scripts/fish/pufferfish.gd" id="1_kn2uh"]
-[ext_resource type="PackedScene" uid="uid://dioxyvxurjdjn" path="res://scenes/pufferfish_visual.tscn" id="2_ry8r6"]
+[ext_resource type="PackedScene" uid="uid://dioxyvxurjdjn" path="res://scenes/fish/pufferfish_visual.tscn" id="2_ry8r6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nub35"]
 radius = 20.0

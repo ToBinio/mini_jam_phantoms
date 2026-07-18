@@ -16,6 +16,8 @@ var possessed_body_scene: PackedScene
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+@export var rock_explosion_particles: PackedScene
+
 var original_visual_scene: PackedScene
 var original_visual: Node2D
 var current_visual: Node2D
@@ -41,7 +43,6 @@ func _physics_process(delta: float) -> void:
 		time.text = ""
 		
 	if Input.is_action_just_pressed("phantom"):
-		print(is_possessing)
 		if !is_possessing:
 			possess_nearby_body()
 		else:
@@ -105,23 +106,23 @@ func possess_nearby_body():
 				"Pufferfish":
 					push_force = 50.0
 					label.text = "Can explode and destroy unstable structure"
-					possessed_body_scene = preload("res://scenes/pufferfish.tscn")
+					possessed_body_scene = preload("res://scenes/fish/pufferfish.tscn")
 				"Crab":
 					push_force = 80.0
 					label.text = "Can jump and interact with certain objects"
-					possessed_body_scene = preload("res://scenes/crab.tscn")
+					possessed_body_scene = preload("res://scenes/fish/crab.tscn")
 				"Lanternfish":
 					push_force = 10.0
 					label.text = "Can light out the way"
-					possessed_body_scene = preload("res://scenes/lanternfish.tscn")
+					possessed_body_scene = preload("res://scenes/fish/lanternfish.tscn")
 				"FishRed":
 					push_force = 30.0
 					label.text = "Can Swim"
-					possessed_body_scene = preload("res://scenes/fish_red.tscn")
+					possessed_body_scene = preload("res://scenes/fish/fish_red.tscn")
 				"FishBlue":
 					push_force = 30.0
 					label.text = "Can Swim"
-					possessed_body_scene = preload("res://scenes/fish_blue.tscn")
+					possessed_body_scene = preload("res://scenes/fish/fish_blue.tscn")
 				"Lever":
 					return
 				"ExplodableRocks":
@@ -168,7 +169,6 @@ func leave_body():
 	add_to_group("Player")
 	
 func change_visual(new_visual_scene: PackedScene):
-	print(current_visual)
 	if is_instance_valid(current_visual):
 		current_visual.queue_free()
 
@@ -185,6 +185,11 @@ func pufferfish_ability():
 	
 	for i in shape_cast_2d.get_collision_count():
 		var body = shape_cast_2d.get_collider(i)
+		
+		var particles = rock_explosion_particles.instantiate()
+		particles.global_position = body.global_position
+		get_parent().add_child(particles)
+		
 		if body == self:
 			continue
 		

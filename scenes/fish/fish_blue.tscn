@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://eg78qk7gkvum"]
+[gd_scene format=3 uid="uid://bjhkd4pgkf6l0"]
 
-[ext_resource type="Script" uid="uid://m01cv41pfaxx" path="res://scripts/fish/fish.gd" id="1_3uc4k"]
-[ext_resource type="PackedScene" uid="uid://bio4apgl5p2cg" path="res://scenes/fish_visual_red.tscn" id="2_i2jc5"]
+[ext_resource type="Script" uid="uid://m01cv41pfaxx" path="res://scripts/fish/fish.gd" id="1_jav5v"]
+[ext_resource type="PackedScene" uid="uid://b57onuhqfh4mn" path="res://scenes/fish/fish_visual_blue.tscn" id="3_0f3e2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nub35"]
 radius = 15.0
@@ -9,15 +9,15 @@ radius = 15.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_pgks6"]
 radius = 16.0
 
-[node name="Fish" type="CharacterBody2D" unique_id=1754323588 groups=["FishRed"]]
+[node name="Fish" type="CharacterBody2D" unique_id=1754323588 groups=["FishBlue"]]
 collision_layer = 2
 collision_mask = 5
-script = ExtResource("1_3uc4k")
+script = ExtResource("1_jav5v")
 speed = 100.0
 friction = 300.0
 acceleration = 100.0
 max_movement_distance = 200
-visual_scene = ExtResource("2_i2jc5")
+visual_scene = ExtResource("3_0f3e2")
 
 [node name="RayCast2D" type="ShapeCast2D" parent="." unique_id=1417882680]
 shape = SubResource("CircleShape2D_nub35")
@@ -26,4 +26,4 @@ shape = SubResource("CircleShape2D_nub35")
 rotation = 1.5707964
 shape = SubResource("CircleShape2D_pgks6")
 
-[node name="Visual" parent="." unique_id=1796577945 instance=ExtResource("2_i2jc5")]
+[node name="Visual" parent="." unique_id=1796577945 instance=ExtResource("3_0f3e2")]

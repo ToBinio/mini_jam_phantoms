@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cya1cdwmrn1mv"]
 
-[ext_resource type="PackedScene" uid="uid://d12510ll8k8ys" path="res://scenes/lanternfish_visual.tscn" id="2_xs7xs"]
+[ext_resource type="PackedScene" uid="uid://d12510ll8k8ys" path="res://scenes/fish/lanternfish_visual.tscn" id="2_xs7xs"]
 [ext_resource type="Script" uid="uid://dobodpa6khtk7" path="res://scripts/fish/lanternfish.gd" id="3_a75x8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nub35"]
