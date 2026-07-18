@@ -1,19 +1,13 @@
 [gd_scene format=3 uid="uid://bjhkd4pgkf6l0"]
 
-[ext_resource type="Texture2D" uid="uid://cli57qw61sucw" path="res://assets/fish.png" id="1_n6yr6"]
 [ext_resource type="Script" uid="uid://m01cv41pfaxx" path="res://scripts/fish/fish.gd" id="1_nub35"]
-[ext_resource type="Script" uid="uid://b2twrtvcwy5v8" path="res://scripts/random_sprite.gd" id="2_8g0i4"]
+[ext_resource type="PackedScene" uid="uid://bio4apgl5p2cg" path="res://scenes/fish_visual.tscn" id="2_8g0i4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nub35"]
 radius = 15.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pgks6"]
 radius = 16.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nub35"]
-resource_local_to_scene = true
-atlas = ExtResource("1_n6yr6")
-region = Rect2(0, 0, 16, 16)
 
 [node name="Fish" type="CharacterBody2D" unique_id=1754323588 groups=["Fish"]]
 collision_layer = 2
@@ -22,6 +16,7 @@ speed = 100.0
 friction = 300.0
 acceleration = 100.0
 max_movement_distance = 200
+visual_scene = ExtResource("2_8g0i4")
 
 [node name="RayCast2D" type="ShapeCast2D" parent="." unique_id=1417882680]
 shape = SubResource("CircleShape2D_nub35")
@@ -30,8 +25,4 @@ shape = SubResource("CircleShape2D_nub35")
 rotation = 1.5707964
 shape = SubResource("CircleShape2D_pgks6")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1462247697]
-scale = Vector2(3, 3)
-texture = SubResource("AtlasTexture_nub35")
-script = ExtResource("2_8g0i4")
-number_of_sprites = 2
+[node name="Visual" parent="." unique_id=1796577945 instance=ExtResource("2_8g0i4")]

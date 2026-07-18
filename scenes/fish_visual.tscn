@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bio4apgl5p2cg"]
+
+[ext_resource type="Texture2D" uid="uid://cli57qw61sucw" path="res://assets/fish.png" id="1_ec8pq"]
+[ext_resource type="Script" uid="uid://b2twrtvcwy5v8" path="res://scripts/random_sprite.gd" id="2_6c3ax"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nub35"]
+resource_local_to_scene = true
+atlas = ExtResource("1_ec8pq")
+region = Rect2(0, 0, 16, 16)
+
+[node name="Visual" type="Node2D" unique_id=1796577945]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=284361305]
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_nub35")
+script = ExtResource("2_6c3ax")
+number_of_sprites = 2
