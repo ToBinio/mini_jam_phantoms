@@ -5,7 +5,7 @@ class_name Player
 @export var friction = 800.0
 @export var acceleration = 400.0
 @export var jump_velocity = -400.0
-@export var push_force = 80.0
+@export var push_force = 0.0
 @export var visual_scene: PackedScene
 var possessed_body_scene: PackedScene
 
@@ -20,6 +20,8 @@ var original_visual_scene: PackedScene
 var original_visual: Node2D
 var current_visual: Node2D
 var original_collision_shape: Shape2D
+var original_collision_layer: int
+var original_collision_mask: int
 
 var is_possessing := false
 
@@ -28,6 +30,8 @@ func _ready() -> void:
 	current_visual = $Visual
 	original_visual = $Visual
 	original_collision_shape = $CollisionShape2D.shape
+	original_collision_layer = collision_layer
+	original_collision_mask = collision_mask
 	timer.start()
 
 func _physics_process(delta: float) -> void:
@@ -99,18 +103,23 @@ func possess_nearby_body():
 		for group in body.get_groups():
 			match group.get_basename():
 				"Pufferfish":
+					push_force = 50.0
 					label.text = "Can explode and destroy unstable structure"
 					possessed_body_scene = preload("res://scenes/pufferfish.tscn")
 				"Crab":
+					push_force = 80.0
 					label.text = "Can jump and interact with certain objects"
 					possessed_body_scene = preload("res://scenes/crab.tscn")
 				"Lanternfish":
+					push_force = 10.0
 					label.text = "Can light out the way"
 					possessed_body_scene = preload("res://scenes/lanternfish.tscn")
 				"FishRed":
+					push_force = 30.0
 					label.text = "Can Swim"
 					possessed_body_scene = preload("res://scenes/fish_red.tscn")
 				"FishBlue":
+					push_force = 30.0
 					label.text = "Can Swim"
 					possessed_body_scene = preload("res://scenes/fish_blue.tscn")
 				"Lever":
@@ -122,6 +131,8 @@ func possess_nearby_body():
 		timer.stop()
 
 		$CollisionShape2D.shape = body.get_node("CollisionShape2D").shape
+		collision_layer = body.collision_layer
+		collision_mask = body.collision_mask
 
 		change_visual(body.visual_scene)
 		
@@ -147,6 +158,9 @@ func leave_body():
 	change_visual(original_visual_scene)
 	
 	$CollisionShape2D.shape = original_collision_shape
+	collision_layer = original_collision_layer
+	collision_mask = original_collision_mask
+	push_force = 0.0
 	
 	is_possessing = false
 	

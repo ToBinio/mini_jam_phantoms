@@ -8,6 +8,7 @@ radius = 16.0
 
 [node name="Crab" type="CharacterBody2D" unique_id=1754323588 groups=["Crab"]]
 collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_rq6vx")
 speed = 20.0
 friction = 50.0
