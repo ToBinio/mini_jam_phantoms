@@ -27,7 +27,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("phantom"):
 		print(is_possessing)
 		if !is_possessing:
-			print("hi")
 			possess_nearby_body()
 		else:
 			leave_body()
@@ -99,6 +98,10 @@ func possess_nearby_body():
 				"Fish":
 					label.text = "Can Swim"
 					possessed_body_scene = preload("res://scenes/fish.tscn")
+				"Lever":
+					return
+				"ExplodableRocks":
+					return
 			add_to_group(group)
 		
 
@@ -117,12 +120,10 @@ func leave_body():
 	
 	new_body.global_position = global_position
 	get_parent().add_child(new_body)
-
 	
 	for group in new_body.get_groups():
 		remove_from_group(group)
 		
-	print("leave")
 	change_visual(original_visual_scene)
 	
 	is_possessing = false
