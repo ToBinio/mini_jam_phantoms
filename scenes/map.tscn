@@ -288,10 +288,11 @@ position = Vector2(30, 467)
 position = Vector2(299, 290)
 
 [node name="Door" parent="Obj" unique_id=1117986891 instance=ExtResource("6_2lpho")]
-position = Vector2(453, 216)
+position = Vector2(228, 248)
 
-[node name="Button" parent="Obj" unique_id=1636582900 instance=ExtResource("7_nakos")]
+[node name="Button" parent="Obj" unique_id=1636582900 node_paths=PackedStringArray("door") instance=ExtResource("7_nakos")]
 position = Vector2(80, 264)
+door = NodePath("../Door")
 
 [node name="Box" parent="Obj" unique_id=519831776 instance=ExtResource("9_be0no")]
 position = Vector2(-230, 36)
