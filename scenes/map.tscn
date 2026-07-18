@@ -342,6 +342,24 @@ tile_set = SubResource("TileSet_jyhfs")
 
 [node name="Entities" type="Node2D" parent="." unique_id=1783679941]
 
+[node name="Pufferfish" parent="Entities" unique_id=1754323588 instance=ExtResource("13_c00ee")]
+position = Vector2(178, 43)
+
+[node name="Pufferfish2" parent="Entities" unique_id=1435160659 instance=ExtResource("13_c00ee")]
+position = Vector2(-107, -42)
+
+[node name="Lanternfish" parent="Entities" unique_id=2059214326 instance=ExtResource("6_blm8a")]
+position = Vector2(314, -8)
+
+[node name="Lanternfish2" parent="Entities" unique_id=1717005319 instance=ExtResource("6_blm8a")]
+position = Vector2(31, 102)
+
+[node name="Crab" parent="Entities" unique_id=2122640135 instance=ExtResource("4_0cso3")]
+position = Vector2(424, 249)
+
+[node name="Crab2" parent="Entities" unique_id=1323763123 instance=ExtResource("4_0cso3")]
+position = Vector2(-290, 115)
+
 [node name="Obj" type="Node2D" parent="." unique_id=1999927800]
 
 [node name="ExplodableRocks" parent="Obj" unique_id=1996274110 instance=ExtResource("5_2klcf")]
@@ -395,21 +413,3 @@ texture = SubResource("AtlasTexture_m335s")
 position = Vector2(51, 462.00003)
 scale = Vector2(3, 3)
 texture = ExtResource("11_mlgqr")
-
-[node name="Pufferfish" parent="." unique_id=1754323588 instance=ExtResource("13_c00ee")]
-position = Vector2(178, 43)
-
-[node name="Pufferfish2" parent="." unique_id=1435160659 instance=ExtResource("13_c00ee")]
-position = Vector2(-107, -42)
-
-[node name="Lanternfish" parent="." unique_id=2059214326 instance=ExtResource("6_blm8a")]
-position = Vector2(314, -8)
-
-[node name="Lanternfish2" parent="." unique_id=1717005319 instance=ExtResource("6_blm8a")]
-position = Vector2(31, 102)
-
-[node name="Crab" parent="." unique_id=2122640135 instance=ExtResource("4_0cso3")]
-position = Vector2(424, 249)
-
-[node name="Crab2" parent="." unique_id=1323763123 instance=ExtResource("4_0cso3")]
-position = Vector2(-290, 115)
