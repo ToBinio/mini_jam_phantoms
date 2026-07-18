@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cli57qw61sucw" path="res://assets/fish.png" id="1_n6yr6"]
 [ext_resource type="Script" uid="uid://m01cv41pfaxx" path="res://scripts/fish/fish.gd" id="1_nub35"]
-[ext_resource type="Script" uid="uid://b2twrtvcwy5v8" path="res://scripts/fish/fish_sprite.gd" id="2_8g0i4"]
+[ext_resource type="Script" uid="uid://b2twrtvcwy5v8" path="res://scripts/random_sprite.gd" id="2_8g0i4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nub35"]
 radius = 15.0
