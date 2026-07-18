@@ -229,8 +229,13 @@ func crab_ability():
 func _on_timer_timeout() -> void:
 	get_tree().reload_current_scene()
 
+var light_on = true
 func set_light(off: bool) -> void:
 	if off:
-		animation_player.play("light_out")
+		if light_on:
+			light_on = false
+			animation_player.play("light_out")
 	else:
-		animation_player.play("light_on")
+		if !light_on:
+			light_on = true
+			animation_player.play("light_on")
