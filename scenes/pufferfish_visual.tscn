@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://o3nigsa0anlu" path="res://assets/pufferfish.png" id="1_pm0p5"]
 
-[sub_resource type="Animation" id="Animation_ry8r6"]
+[sub_resource type="Animation" id="Animation_pm0p5"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("visual/Sprite2D:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -17,14 +17,14 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_kn2uh"]
+[sub_resource type="Animation" id="Animation_tysby"]
 resource_name = "swim"
 length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("visual/Sprite2D:frame")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -34,17 +34,16 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_r0q7b"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tlygs"]
 _data = {
-&"RESET": SubResource("Animation_ry8r6"),
-&"swim": SubResource("Animation_kn2uh")
+&"RESET": SubResource("Animation_pm0p5"),
+&"swim": SubResource("Animation_tysby")
 }
 
 [node name="visual" type="Node2D" unique_id=1365767229]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1335040987]
-root_node = NodePath("../..")
-libraries/ = SubResource("AnimationLibrary_r0q7b")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=530225410]
+libraries/ = SubResource("AnimationLibrary_tlygs")
 autoplay = &"swim"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1864326048]
