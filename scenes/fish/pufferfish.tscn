@@ -20,6 +20,7 @@ visual_scene = ExtResource("2_ry8r6")
 
 [node name="RayCast2D" type="ShapeCast2D" parent="." unique_id=1417882680]
 shape = SubResource("CircleShape2D_nub35")
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=286976947]
 rotation = 1.5707964
