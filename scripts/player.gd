@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var friction = 800.0
 @export var acceleration = 400.0
 @export var jump_velocity = -400.0
+@export var push_force = 80.0
 
 @onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 @onready var particles: GPUParticles2D = $Particles
@@ -61,6 +62,11 @@ func _physics_process(delta: float) -> void:
 			$Sprite2D.flip_h = true
 	
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 
 
 func possess_nearby_body():
