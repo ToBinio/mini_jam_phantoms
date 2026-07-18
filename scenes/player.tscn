@@ -36,7 +36,7 @@ scale_max = 3.0
 scale_curve = SubResource("CurveTexture_dqkch")
 
 [node name="Player" type="CharacterBody2D" unique_id=1754042684 groups=["Player"]]
-collision_layer = 0
+collision_layer = 4
 script = ExtResource("1_3vyb7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=823401576]

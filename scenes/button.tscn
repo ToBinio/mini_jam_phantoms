@@ -20,26 +20,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Collision:shape:size")
+tracks/1/path = NodePath("../Collision:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(7, 24)]
+"values": [Vector2(1.5, -36)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Collision:position")
+tracks/2/path = NodePath("../Collision:shape:size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1.5, -36)]
+"values": [Vector2(7, 24)]
 }
 
 [sub_resource type="Animation" id="Animation_83dcw"]
@@ -60,26 +60,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Collision:shape:size")
+tracks/1/path = NodePath("../Collision:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.099999994),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(33, 12), Vector2(33, 6)]
+"values": [Vector2(-1.5, -6), Vector2(-1.5, -3)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Collision:position")
+tracks/2/path = NodePath("../Collision:shape:size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.099999994),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-1.5, -6), Vector2(-1.5, -3)]
+"values": [Vector2(33, 12), Vector2(33, 6)]
 }
 
 [sub_resource type="Animation" id="Animation_rhj8v"]
@@ -100,26 +100,26 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Collision:shape:size")
+tracks/1/path = NodePath("../Collision:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(33, 6), Vector2(33, 12)]
+"values": [Vector2(-1.5, -3), Vector2(-1.5, -6)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Collision:position")
+tracks/2/path = NodePath("../Collision:shape:size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-1.5, -3), Vector2(-1.5, -6)]
+"values": [Vector2(33, 6), Vector2(33, 12)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_la1wf"]
@@ -132,7 +132,12 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqjp7"]
 size = Vector2(7, 24)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhj8v"]
+size = Vector2(20, 22)
+
 [node name="Button" type="StaticBody2D" unique_id=1117986891]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_rhj8v")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1940030687]
@@ -140,7 +145,7 @@ root_node = NodePath("../Sprite2D")
 libraries/ = SubResource("AnimationLibrary_la1wf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1358574442]
-position = Vector2(0, -24)
+position = Vector2(1, -24)
 scale = Vector2(3, 3)
 texture = ExtResource("2_rhj8v")
 hframes = 2
@@ -148,3 +153,14 @@ hframes = 2
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1435713825]
 position = Vector2(1.5, -36)
 shape = SubResource("RectangleShape2D_kqjp7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1162539767]
+collision_layer = 3
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=388819647]
+position = Vector2(-0.5, -11)
+shape = SubResource("RectangleShape2D_rhj8v")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

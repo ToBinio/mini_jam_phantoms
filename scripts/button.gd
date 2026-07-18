@@ -9,7 +9,7 @@ func _ready() -> void:
 	else:
 		down()
 		
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# debug function
 	if Input.is_action_just_pressed("interact"):
 		if is_up:
@@ -24,3 +24,13 @@ func up() -> void:
 func down() -> void:
 	is_up = false
 	animation_player.play("down")
+
+
+func _on_area_2d_body_entered(_body: Node2D) -> void:
+	print("hiEntered")
+	down()
+
+
+func _on_area_2d_body_exited(_body: Node2D) -> void:
+	print("hiExited")
+	up()

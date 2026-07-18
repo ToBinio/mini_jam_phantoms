@@ -79,7 +79,6 @@ func possess_nearby_body():
 			continue
 		
 		var other_sprite = body.get_node("Sprite2D")
-		var other_light = body.get_node("PointLight2D")
 		var my_sprite = $Sprite2D
 		
 		remove_from_group("Player")
@@ -100,6 +99,7 @@ func possess_nearby_body():
 		my_sprite.flip_h = other_sprite.flip_h
 		
 		if body.is_in_group("Lanternfish"):
+			var other_light = body.get_node("PointLight2D")
 			$PointLight2D.color = other_light.color
 			$PointLight2D.energy = other_light.energy
 			$PointLight2D.texture_scale = other_light.texture_scale
