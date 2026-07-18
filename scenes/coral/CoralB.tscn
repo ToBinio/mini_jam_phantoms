@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cwa7m3f7tycqi"]
+
+[ext_resource type="Texture2D" uid="uid://bnic35ouclor3" path="res://assets/coralB.png" id="1_1eu5w"]
+[ext_resource type="Script" uid="uid://b2twrtvcwy5v8" path="res://scripts/random_sprite.gd" id="2_ndn6e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqjp7"]
+resource_local_to_scene = true
+atlas = ExtResource("1_1eu5w")
+region = Rect2(0, 0, 16, 0)
+
+[node name="CoralB" type="Sprite2D" unique_id=1299860566]
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_kqjp7")
+script = ExtResource("2_ndn6e")
+number_of_sprites = 6
+flip_sprites = true

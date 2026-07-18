@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://bdwvtkyv4wmu6" path="res://assets/diver.png" id="11_mlgqr"]
 [ext_resource type="PackedScene" uid="uid://drv35yrhnkqor" path="res://scenes/coral/CoralA.tscn" id="11_wslke"]
 [ext_resource type="PackedScene" uid="uid://dummjvudkaf50" path="res://scenes/pufferfish.tscn" id="13_c00ee"]
+[ext_resource type="PackedScene" uid="uid://cwa7m3f7tycqi" path="res://scenes/coral/CoralB.tscn" id="15_c70he"]
+[ext_resource type="Texture2D" uid="uid://bnic35ouclor3" path="res://assets/coralB.png" id="16_mo32q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6xl0"]
 texture = ExtResource("2_0cso3")
@@ -317,6 +319,41 @@ resource_local_to_scene = true
 atlas = ExtResource("11_gw3fx")
 region = Rect2(0, 0, 16, 0)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b7dj"]
+resource_local_to_scene = true
+atlas = ExtResource("16_mo32q")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cfcp"]
+resource_local_to_scene = true
+atlas = ExtResource("16_mo32q")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2ir2"]
+resource_local_to_scene = true
+atlas = ExtResource("16_mo32q")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5u2yt"]
+resource_local_to_scene = true
+atlas = ExtResource("16_mo32q")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30iet"]
+resource_local_to_scene = true
+atlas = ExtResource("16_mo32q")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkblt"]
+resource_local_to_scene = true
+atlas = ExtResource("16_mo32q")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4o3w1"]
+resource_local_to_scene = true
+atlas = ExtResource("16_mo32q")
+region = Rect2(0, 0, 16, 0)
+
 [node name="Map" type="Node2D" unique_id=924707633]
 
 [node name="Tiles" type="Node2D" parent="." unique_id=624204716]
@@ -352,7 +389,7 @@ position = Vector2(-107, -42)
 position = Vector2(314, -8)
 
 [node name="Lanternfish2" parent="Entities" unique_id=1717005319 instance=ExtResource("6_blm8a")]
-position = Vector2(31, 102)
+position = Vector2(24, 102)
 
 [node name="Crab" parent="Entities" unique_id=2122640135 instance=ExtResource("4_0cso3")]
 position = Vector2(424, 249)
@@ -408,6 +445,34 @@ texture = SubResource("AtlasTexture_m335s")
 [node name="CoralA4" parent="Obj/Coral" unique_id=1488649994 instance=ExtResource("11_wslke")]
 position = Vector2(525, 291)
 texture = SubResource("AtlasTexture_sq6bu")
+
+[node name="CoralB" parent="Obj/Coral" unique_id=1799691826 instance=ExtResource("15_c70he")]
+position = Vector2(-108.00001, 312)
+texture = SubResource("AtlasTexture_4b7dj")
+
+[node name="CoralB2" parent="Obj/Coral" unique_id=887626749 instance=ExtResource("15_c70he")]
+position = Vector2(-141, 312)
+texture = SubResource("AtlasTexture_2cfcp")
+
+[node name="CoralB3" parent="Obj/Coral" unique_id=2140452290 instance=ExtResource("15_c70he")]
+position = Vector2(-171, 312)
+texture = SubResource("AtlasTexture_y2ir2")
+
+[node name="CoralB4" parent="Obj/Coral" unique_id=2127612713 instance=ExtResource("15_c70he")]
+position = Vector2(-51, 408.00003)
+texture = SubResource("AtlasTexture_5u2yt")
+
+[node name="CoralB5" parent="Obj/Coral" unique_id=1946596162 instance=ExtResource("15_c70he")]
+position = Vector2(-234, 120)
+texture = SubResource("AtlasTexture_30iet")
+
+[node name="CoralB6" parent="Obj/Coral" unique_id=1877981474 instance=ExtResource("15_c70he")]
+position = Vector2(-292, 120)
+texture = SubResource("AtlasTexture_mkblt")
+
+[node name="CoralB7" parent="Obj/Coral" unique_id=1119681903 instance=ExtResource("15_c70he")]
+position = Vector2(-267, 120)
+texture = SubResource("AtlasTexture_4o3w1")
 
 [node name="DeadBody" type="Sprite2D" parent="." unique_id=1446864599]
 position = Vector2(51, 462.00003)
