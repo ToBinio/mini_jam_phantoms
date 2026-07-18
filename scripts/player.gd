@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 
 @export var speed = 300.0
 @export var friction = 800.0
@@ -14,6 +14,7 @@ var possessed_body_scene: PackedScene
 @onready var time: Label = $"../CanvasLayer/Control/Time"
 @onready var timer: Timer = $Timer
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var original_visual_scene: PackedScene
 var original_visual: Node2D
@@ -106,9 +107,12 @@ func possess_nearby_body():
 				"Lanternfish":
 					label.text = "Can light out the way"
 					possessed_body_scene = preload("res://scenes/lanternfish.tscn")
-				"Fish":
+				"FishRed":
 					label.text = "Can Swim"
-					possessed_body_scene = preload("res://scenes/fish.tscn")
+					possessed_body_scene = preload("res://scenes/fish_red.tscn")
+				"FishBlue":
+					label.text = "Can Swim"
+					possessed_body_scene = preload("res://scenes/fish_blue.tscn")
 				"Lever":
 					return
 				"ExplodableRocks":
@@ -205,3 +209,9 @@ func crab_ability():
 
 func _on_timer_timeout() -> void:
 	get_tree().reload_current_scene()
+
+func set_light(off: bool) -> void:
+	if off:
+		animation_player.play("light_out")
+	else:
+		animation_player.play("light_on")

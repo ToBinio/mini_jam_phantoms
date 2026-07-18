@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b57onuhqfh4mn"]
+
+[ext_resource type="Texture2D" uid="uid://cli57qw61sucw" path="res://assets/fish.png" id="1_atc3d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nub35"]
+resource_local_to_scene = true
+atlas = ExtResource("1_atc3d")
+region = Rect2(0, 0, 16, 16)
+
+[node name="Visual" type="Node2D" unique_id=1796577945]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=284361305]
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_nub35")

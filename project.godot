@@ -18,12 +18,13 @@ config/icon="res://icon.svg"
 [global_group]
 
 Pufferfish=""
-Fish=""
 Player=""
 Crab=""
 Lanternfish=""
 Lever=""
 ExplodableRocks=""
+FishRed=""
+FishBlue=""
 
 [input]
 
