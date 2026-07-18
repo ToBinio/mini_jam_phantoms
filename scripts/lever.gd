@@ -1,4 +1,5 @@
 extends StaticBody2D
+class_name Lever
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var is_left: bool = true
@@ -8,14 +9,6 @@ func _ready() -> void:
 		left()
 	else:
 		right()
-		
-func _process(delta: float) -> void:
-	# debug function
-	if Input.is_action_just_pressed("interact"):
-		if is_left:
-			right()
-		else: 
-			left()
 
 func left() -> void:
 	is_left = true

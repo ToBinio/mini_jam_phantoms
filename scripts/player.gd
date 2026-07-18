@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 @onready var particles: GPUParticles2D = $Particles
 
+
 var original_texture: Texture2D
 var original_light_energy: float
 var original_light_color: Color
@@ -35,6 +36,8 @@ func _physics_process(delta: float) -> void:
 			match group.get_basename():
 				"Pufferfish":
 					pufferfish_ability()
+				"Crab":
+					crab_ability()
 			
 	if is_in_group("Crab"):
 		if not is_on_floor():
@@ -147,3 +150,21 @@ func pufferfish_ability():
 	add_to_group("Player")
 	
 	$Sprite2D.texture = original_texture
+	
+func crab_ability():
+	shape_cast_2d.force_shapecast_update()
+	
+	for i in shape_cast_2d.get_collision_count():
+		var body = shape_cast_2d.get_collider(i)
+		if body == self:
+			continue
+		
+		for group in body.get_groups():
+			if body.is_in_group("Lever"):
+				print("Worked")
+				if body.is_left:
+					print("right")
+					body.right()
+				else:
+					print("left")
+					body.left()

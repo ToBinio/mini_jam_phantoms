@@ -10,14 +10,6 @@ func _ready() -> void:
 		open()
 	else:
 		close()
-		
-func _process(delta: float) -> void:
-	# debug function
-	if Input.is_action_just_pressed("interact"):
-		if is_open:
-			close()
-		else: 
-			open()
 
 func open() -> void:
 	is_open = true

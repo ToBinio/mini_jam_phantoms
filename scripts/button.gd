@@ -21,14 +21,6 @@ func _ready() -> void:
 		up()
 	else:
 		down()
-		
-func _process(_delta: float) -> void:
-	# debug function
-	if Input.is_action_just_pressed("interact"):
-		if is_up:
-			down()
-		else: 
-			up()
 
 func up() -> void:
 	door.close()
