@@ -11,6 +11,9 @@ var possessed_body_scene: PackedScene
 
 @onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 @onready var label: Label = $"../CanvasLayer/Control/Label"
+@onready var time: Label = $"../CanvasLayer/Control/Time"
+@onready var timer: Timer = $Timer
+
 
 var original_visual_scene: PackedScene
 var original_visual: Node2D
@@ -24,8 +27,14 @@ func _ready() -> void:
 	current_visual = $Visual
 	original_visual = $Visual
 	original_collision_shape = $CollisionShape2D.shape
+	timer.start()
 
 func _physics_process(delta: float) -> void:
+	if !is_possessing:
+		time.text = str(int(ceil(timer.time_left)))
+	else:
+		time.text = ""
+		
 	if Input.is_action_just_pressed("phantom"):
 		print(is_possessing)
 		if !is_possessing:
@@ -106,6 +115,8 @@ func possess_nearby_body():
 					return
 			add_to_group(group)
 
+		timer.stop()
+
 		$CollisionShape2D.shape = body.get_node("CollisionShape2D").shape
 
 		change_visual(body.visual_scene)
@@ -119,6 +130,8 @@ func possess_nearby_body():
 		break
 		
 func leave_body():
+	timer.start()
+	
 	var new_body = possessed_body_scene.instantiate()
 	
 	new_body.global_position = global_position
@@ -148,6 +161,8 @@ func change_visual(new_visual_scene: PackedScene):
 	
 	
 func pufferfish_ability():
+	timer.start()
+	
 	shape_cast_2d.force_shapecast_update()
 	
 	for i in shape_cast_2d.get_collision_count():
@@ -186,3 +201,7 @@ func crab_ability():
 					body.right()
 				else:
 					body.left()
+
+
+func _on_timer_timeout() -> void:
+	get_tree().reload_current_scene()

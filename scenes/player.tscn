@@ -141,3 +141,8 @@ collision_mask = 2
 color = Color(0.7204101, 0.8336144, 0.93730915, 1)
 texture = ExtResource("3_qhqgy")
 texture_scale = 2.0
+
+[node name="Timer" type="Timer" parent="." unique_id=1400711859]
+wait_time = 10.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
