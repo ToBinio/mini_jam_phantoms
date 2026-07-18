@@ -7,11 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://cop5f0sn8x6d0" path="res://scenes/crab.tscn" id="4_0cso3"]
 [ext_resource type="PackedScene" uid="uid://csthi8xaw6in8" path="res://scenes/explodable_rocks.tscn" id="5_2klcf"]
 [ext_resource type="PackedScene" uid="uid://xniqmwoetya3" path="res://scenes/door.tscn" id="6_2lpho"]
+[ext_resource type="PackedScene" uid="uid://cya1cdwmrn1mv" path="res://scenes/lanternfish.tscn" id="6_blm8a"]
 [ext_resource type="PackedScene" uid="uid://b43o0p0pppt84" path="res://scenes/button.tscn" id="7_nakos"]
 [ext_resource type="PackedScene" uid="uid://dd7gjgmc7renw" path="res://scenes/box.tscn" id="9_be0no"]
 [ext_resource type="PackedScene" uid="uid://cq05k78vmq3uc" path="res://scenes/lever.tscn" id="10_blm8a"]
+[ext_resource type="Texture2D" uid="uid://dn5fydg86jpcv" path="res://assets/coralA.png" id="11_gw3fx"]
 [ext_resource type="Texture2D" uid="uid://bdwvtkyv4wmu6" path="res://assets/diver.png" id="11_mlgqr"]
 [ext_resource type="PackedScene" uid="uid://drv35yrhnkqor" path="res://scenes/coral/CoralA.tscn" id="11_wslke"]
+[ext_resource type="PackedScene" uid="uid://dummjvudkaf50" path="res://scenes/pufferfish.tscn" id="13_c00ee"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6xl0"]
 texture = ExtResource("2_0cso3")
@@ -279,6 +282,41 @@ terrain_set_0/terrain_0/name = "Wall"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_tefeu")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1psn"]
+resource_local_to_scene = true
+atlas = ExtResource("11_gw3fx")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c00ee"]
+resource_local_to_scene = true
+atlas = ExtResource("11_gw3fx")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7tei"]
+resource_local_to_scene = true
+atlas = ExtResource("11_gw3fx")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c70he"]
+resource_local_to_scene = true
+atlas = ExtResource("11_gw3fx")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo32q"]
+resource_local_to_scene = true
+atlas = ExtResource("11_gw3fx")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k6j1"]
+resource_local_to_scene = true
+atlas = ExtResource("11_gw3fx")
+region = Rect2(0, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m335s"]
+resource_local_to_scene = true
+atlas = ExtResource("11_gw3fx")
+region = Rect2(0, 0, 16, 0)
+
 [node name="Map" type="Node2D" unique_id=924707633]
 
 [node name="Tiles" type="Node2D" parent="." unique_id=624204716]
@@ -304,12 +342,6 @@ tile_set = SubResource("TileSet_jyhfs")
 
 [node name="Entities" type="Node2D" parent="." unique_id=1783679941]
 
-[node name="Crab" parent="Entities" unique_id=1754323588 instance=ExtResource("4_0cso3")]
-position = Vector2(404, 267)
-
-[node name="Crab2" parent="Entities" unique_id=1509446986 instance=ExtResource("4_0cso3")]
-position = Vector2(-294, 122)
-
 [node name="Obj" type="Node2D" parent="." unique_id=1999927800]
 
 [node name="ExplodableRocks" parent="Obj" unique_id=1996274110 instance=ExtResource("5_2klcf")]
@@ -318,15 +350,9 @@ position = Vector2(299, 290)
 [node name="Door" parent="Obj" unique_id=1117986891 instance=ExtResource("6_2lpho")]
 position = Vector2(228, 248)
 
-<<<<<<< Updated upstream
 [node name="Button" parent="Obj" unique_id=1636582900 node_paths=PackedStringArray("doors") instance=ExtResource("7_nakos")]
 position = Vector2(80, 264)
 doors = [NodePath("../Door")]
-=======
-[node name="Button" parent="Obj" unique_id=1636582900 node_paths=PackedStringArray("door") instance=ExtResource("7_nakos")]
-position = Vector2(-118, 336)
-door = NodePath("../Door")
->>>>>>> Stashed changes
 
 [node name="Box" parent="Obj" unique_id=519831776 instance=ExtResource("9_be0no")]
 position = Vector2(-230, 36)
@@ -339,26 +365,51 @@ doors = [NodePath("../Door")]
 
 [node name="CoralA" parent="Obj/Coral" unique_id=1299860566 instance=ExtResource("11_wslke")]
 position = Vector2(501, 291)
+texture = SubResource("AtlasTexture_n1psn")
 
 [node name="CoralA2" parent="Obj/Coral" unique_id=381523103 instance=ExtResource("11_wslke")]
 position = Vector2(549, 291)
+texture = SubResource("AtlasTexture_c00ee")
 
 [node name="CoralA5" parent="Obj/Coral" unique_id=157998642 instance=ExtResource("11_wslke")]
 position = Vector2(603, 294)
+texture = SubResource("AtlasTexture_p7tei")
 
 [node name="CoralA6" parent="Obj/Coral" unique_id=16395019 instance=ExtResource("11_wslke")]
 position = Vector2(471, 240)
+texture = SubResource("AtlasTexture_c70he")
 
 [node name="CoralA7" parent="Obj/Coral" unique_id=302425788 instance=ExtResource("11_wslke")]
 position = Vector2(445, 240)
+texture = SubResource("AtlasTexture_mo32q")
 
 [node name="CoralA3" parent="Obj/Coral" unique_id=1281340973 instance=ExtResource("11_wslke")]
 position = Vector2(579, 291)
+texture = SubResource("AtlasTexture_6k6j1")
 
 [node name="CoralA4" parent="Obj/Coral" unique_id=1488649994 instance=ExtResource("11_wslke")]
 position = Vector2(525, 291)
+texture = SubResource("AtlasTexture_m335s")
 
 [node name="DeadBody" type="Sprite2D" parent="." unique_id=1446864599]
 position = Vector2(51, 462.00003)
 scale = Vector2(3, 3)
 texture = ExtResource("11_mlgqr")
+
+[node name="Pufferfish" parent="." unique_id=1754323588 instance=ExtResource("13_c00ee")]
+position = Vector2(178, 43)
+
+[node name="Pufferfish2" parent="." unique_id=1435160659 instance=ExtResource("13_c00ee")]
+position = Vector2(-107, -42)
+
+[node name="Lanternfish" parent="." unique_id=2059214326 instance=ExtResource("6_blm8a")]
+position = Vector2(314, -8)
+
+[node name="Lanternfish2" parent="." unique_id=1717005319 instance=ExtResource("6_blm8a")]
+position = Vector2(31, 102)
+
+[node name="Crab" parent="." unique_id=2122640135 instance=ExtResource("4_0cso3")]
+position = Vector2(424, 249)
+
+[node name="Crab2" parent="." unique_id=1323763123 instance=ExtResource("4_0cso3")]
+position = Vector2(-290, 115)

@@ -3,9 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://ctll4jwnyskf8" path="res://scenes/map.tscn" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://c1xwhsvwbtyru" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cfo7xrly4e6tq" path="res://scripts/camera.gd" id="1_sugp2"]
-[ext_resource type="PackedScene" uid="uid://dummjvudkaf50" path="res://scenes/pufferfish.tscn" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://cya1cdwmrn1mv" path="res://scenes/lanternfish.tscn" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://bs0u36l863b6v" path="res://scenes/key.tscn" id="6_tefeu"]
 
 [node name="Main" type="Node2D" unique_id=1102283499]
 
@@ -25,15 +22,6 @@ player = NodePath("../Player")
 position = Vector2(39, 441)
 acceleration = 700.0
 
-[node name="Pufferfish" parent="." unique_id=1754323588 instance=ExtResource("4_jyhfs")]
-
-[node name="Lanternfish" parent="." unique_id=6511546 instance=ExtResource("5_tbgi4")]
-
-<<<<<<< Updated upstream
-[node name="Key" parent="." unique_id=747457996 node_paths=PackedStringArray("following") instance=ExtResource("6_tefeu")]
-position = Vector2(-21, 115)
-following = NodePath("../Player")
-=======
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=292142929]
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=213922801]
@@ -54,4 +42,3 @@ offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
 horizontal_alignment = 1
->>>>>>> Stashed changes
