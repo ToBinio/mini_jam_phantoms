@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://cya1cdwmrn1mv"]
 
-[ext_resource type="Texture2D" uid="uid://cli57qw61sucw" path="res://assets/fish.png" id="2_b51bv"]
+[ext_resource type="Texture2D" uid="uid://dyqbi03o8cu0r" path="res://assets/lanternfish.png" id="2_b51bv"]
 [ext_resource type="Script" uid="uid://dobodpa6khtk7" path="res://scripts/fish/lanternfish.gd" id="3_a75x8"]
-[ext_resource type="Script" uid="uid://b2twrtvcwy5v8" path="res://scripts/fish/fish_sprite.gd" id="3_bthd0"]
 [ext_resource type="Texture2D" uid="uid://chmfpncmfqa0d" path="res://assets/2d_lights_and_shadows_neutral_point_light.webp" id="4_b51bv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nub35"]
@@ -10,11 +9,6 @@ radius = 15.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pgks6"]
 radius = 16.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nub35"]
-resource_local_to_scene = true
-atlas = ExtResource("2_b51bv")
-region = Rect2(0, 0, 16, 16)
 
 [node name="Lanternfish" type="CharacterBody2D" unique_id=1754323588 groups=["Lanternfish"]]
 collision_layer = 2
@@ -32,12 +26,10 @@ shape = SubResource("CircleShape2D_pgks6")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1462247697]
 scale = Vector2(3, 3)
-texture = SubResource("AtlasTexture_nub35")
-script = ExtResource("3_bthd0")
-number_of_sprites = 2
+texture = ExtResource("2_b51bv")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=867516648]
-color = Color(0.6094, 0.75594205, 0.21681923, 1)
-energy = 2.0
+color = Color(0.33549502, 0.5843116, 0.80315787, 1)
+energy = 0.5
 texture = ExtResource("4_b51bv")
 texture_scale = 3.0
