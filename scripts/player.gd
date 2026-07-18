@@ -102,7 +102,6 @@ func possess_nearby_body():
 			add_to_group(group)
 		
 
-		print("possess")
 		change_visual(body.visual_scene)
 		
 		is_possessing = true
@@ -153,11 +152,17 @@ func pufferfish_ability():
 			continue
 		
 		body.queue_free()
-	var new_body = visual_scene.instantiate()
+		
+	var new_body = possessed_body_scene.instantiate()
 	
 	for group in new_body.get_groups():
 		remove_from_group(group)
 		
+	change_visual(original_visual_scene)
+	
+	is_possessing = false
+	
+	label.text = ""
 	add_to_group("Player")
 	
 func crab_ability():
