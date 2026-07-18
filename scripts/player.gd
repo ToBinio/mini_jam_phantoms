@@ -15,6 +15,7 @@ var possessed_body_scene: PackedScene
 var original_visual_scene: PackedScene
 var original_visual: Node2D
 var current_visual: Node2D
+var original_collision_shape: Shape2D
 
 var is_possessing := false
 
@@ -22,6 +23,7 @@ func _ready() -> void:
 	original_visual_scene = visual_scene
 	current_visual = $Visual
 	original_visual = $Visual
+	original_collision_shape = $CollisionShape2D.shape
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("phantom"):
@@ -103,7 +105,8 @@ func possess_nearby_body():
 				"ExplodableRocks":
 					return
 			add_to_group(group)
-		
+
+		$CollisionShape2D.shape = body.get_node("CollisionShape2D").shape
 
 		change_visual(body.visual_scene)
 		
@@ -126,6 +129,8 @@ func leave_body():
 		
 	change_visual(original_visual_scene)
 	
+	$CollisionShape2D.shape = original_collision_shape
+	
 	is_possessing = false
 	
 	label.text = ""
@@ -137,8 +142,6 @@ func change_visual(new_visual_scene: PackedScene):
 		current_visual.queue_free()
 
 	current_visual = new_visual_scene.instantiate()
-	
-	print(current_visual)
 
 	add_child(current_visual)
 
@@ -160,6 +163,8 @@ func pufferfish_ability():
 		remove_from_group(group)
 		
 	change_visual(original_visual_scene)
+	
+	$CollisionShape2D.shape = original_collision_shape
 	
 	is_possessing = false
 	
