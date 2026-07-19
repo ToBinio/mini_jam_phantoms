@@ -82,7 +82,7 @@ func _physics_process(delta: float) -> void:
 		
 		var direction := Input.get_axis("ui_left", "ui_right")
 		if direction:
-			velocity.x = direction * speed
+			velocity.x = direction * speed / 2.0
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
 	else:
@@ -120,23 +120,23 @@ func possess_nearby_body():
 		for group in body.get_groups():
 			match group.get_basename():
 				"Pufferfish":
-					push_force = 50.0
+					push_force = 5.0
 					label.text = "Can explode and destroy unstable structure"
 					possessed_body_scene = preload("res://scenes/fish/pufferfish.tscn")
 				"Crab":
-					push_force = 80.0
+					push_force = 8.0
 					label.text = "Can jump and interact with certain objects"
 					possessed_body_scene = preload("res://scenes/fish/crab.tscn")
 				"Lanternfish":
-					push_force = 10.0
+					push_force = 1.0
 					label.text = "Can light out the way"
 					possessed_body_scene = preload("res://scenes/fish/lanternfish.tscn")
 				"FishRed":
-					push_force = 30.0
+					push_force = 3.0
 					label.text = "Can Swim"
 					possessed_body_scene = preload("res://scenes/fish/fish_red.tscn")
 				"FishBlue":
-					push_force = 30.0
+					push_force = 3.0
 					label.text = "Can Swim"
 					possessed_body_scene = preload("res://scenes/fish/fish_blue.tscn")
 				"Lever":

@@ -170,6 +170,7 @@ explosiveness = 0.91
 process_material = SubResource("ParticleProcessMaterial_kqjp7")
 
 [node name="ShockWave" type="GPUParticles2D" parent="." unique_id=1748645889]
+position = Vector2(-4, 0)
 emitting = false
 amount = 1
 texture = ExtResource("4_brs3p")

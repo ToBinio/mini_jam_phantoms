@@ -124,6 +124,9 @@ radius = 57.07
 [node name="Player" type="CharacterBody2D" unique_id=1754042684 groups=["Player"]]
 collision_layer = 8
 script = ExtResource("1_3vyb7")
+speed = 200.0
+acceleration = 200.0
+jump_velocity = -270.0
 visual_scene = ExtResource("2_g2els")
 possessed_particles = ExtResource("3_tuyoq")
 rock_explosion_particles = ExtResource("3_dqkch")
