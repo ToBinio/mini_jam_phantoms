@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bofeahr7rxks8" path="res://sounds/underwater_ambience.ogg" id="2_o6xl0"]
 [ext_resource type="AudioStream" uid="uid://1hv0vgqk2t7s" path="res://sounds/drowned.ogg" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bw0m2b21bvkn8" path="res://scenes/fade_transition.tscn" id="5_tbgi4"]
+[ext_resource type="FontFile" uid="uid://blqmtc6l2a766" path="res://assets/font.ttf" id="7_tipki"]
 
 [sub_resource type="Animation" id="Animation_tbgi4"]
 length = 0.001
@@ -170,6 +171,15 @@ _data = {
 &"start": SubResource("Animation_jyhfs")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_owjas"]
+font = ExtResource("7_tipki")
+font_size = 24
+font_color = Color(0.77539885, 0.8075496, 0.86894196, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tipki"]
+font = ExtResource("7_tipki")
+font_size = 48
+
 [node name="Main" type="Node2D" unique_id=1102283499]
 script = ExtResource("1_tbgi4")
 
@@ -177,6 +187,7 @@ script = ExtResource("1_tbgi4")
 stream = ExtResource("2_o6xl0")
 volume_db = 5.0
 autoplay = true
+playback_type = 1
 parameters/looping = true
 
 [node name="MainAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1926989901]
@@ -199,7 +210,7 @@ script = ExtResource("1_sugp2")
 player = NodePath("../Player")
 
 [node name="Player" parent="." unique_id=792900258 instance=ExtResource("1_o5qli")]
-position = Vector2(44, 429)
+position = Vector2(41, 418)
 acceleration = 700.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=292142929]
@@ -218,9 +229,12 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
+offset_top = 12.0
 offset_right = 20.0
-offset_bottom = 23.0
+offset_bottom = 35.0
 grow_horizontal = 2
+text = "here is an explanation"
+label_settings = SubResource("LabelSettings_owjas")
 horizontal_alignment = 1
 
 [node name="CenterText" type="Label" parent="CanvasLayer/Control" unique_id=1880169758]
@@ -237,6 +251,7 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "thahnk youl fht my frehehdom, oh wre'htkh"
+label_settings = SubResource("LabelSettings_tipki")
 horizontal_alignment = 1
 vertical_alignment = 1
 visible_characters = 0

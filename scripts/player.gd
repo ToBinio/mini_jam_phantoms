@@ -43,11 +43,14 @@ func _ready() -> void:
 	
 	timer.wait_time = 25;
 	timer.start()
+	
+	label.text = "Borrow the strength of the wild [F]"
 
 @export var is_frozen = false
 var last_seconds = 0
 func _physics_process(delta: float) -> void:
 	if is_frozen:
+		label.text = ""
 		return
 	
 	if !is_possessing:
@@ -124,23 +127,23 @@ func possess_nearby_body():
 			match group.get_basename():
 				"Pufferfish":
 					push_force = 5.0
-					label.text = "Can explode and destroy unstable structure"
+					label.text = "Bring crumbling structures to ruin [E]"
 					possessed_body_scene = preload("res://scenes/fish/pufferfish.tscn")
 				"Crab":
 					push_force = 8.0
-					label.text = "Can jump and interact with certain objects"
+					label.text = "Vault over obstacles [Space] and stir ancient devices [E]"
 					possessed_body_scene = preload("res://scenes/fish/crab.tscn")
 				"Lanternfish":
 					push_force = 1.0
-					label.text = "Can light out the way"
+					label.text = "Ignite your flame to guide a journey"
 					possessed_body_scene = preload("res://scenes/fish/lanternfish.tscn")
 				"FishRed":
 					push_force = 3.0
-					label.text = "Can Swim"
+					label.text = ""
 					possessed_body_scene = preload("res://scenes/fish/fish_red.tscn")
 				"FishBlue":
 					push_force = 3.0
-					label.text = "Can Swim"
+					label.text = ""
 					possessed_body_scene = preload("res://scenes/fish/fish_blue.tscn")
 				"Lever":
 					return
@@ -189,7 +192,7 @@ func leave_body():
 	is_possessing = false
 	possessed_audio.play()
 	
-	label.text = ""
+	label.text = "Borrow the strength of the wild [F]"
 	add_to_group("Player")
 	
 func change_visual(new_visual_scene: PackedScene):

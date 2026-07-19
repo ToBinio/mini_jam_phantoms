@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dbpexxs6fb1u2" path="res://assets/door.png" id="1_hpvv5"]
 [ext_resource type="Script" uid="uid://81hmafxm4icd" path="res://scripts/door.gd" id="1_uvdjg"]
-[ext_resource type="AudioStream" uid="uid://2wlkhmtotxrg" path="res://sounds/door.ogg" id="2_83dcw"]
+[ext_resource type="AudioStream" uid="uid://cfiofmggu5wsp" path="res://sounds/door.mp3" id="3_83dcw"]
 
 [sub_resource type="Animation" id="Animation_uvdjg"]
 length = 0.001
@@ -201,9 +201,11 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqjp7"]
+resource_local_to_scene = true
 size = Vector2(7, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fo6ck"]
+resource_local_to_scene = true
 size = Vector2(7, 24)
 
 [node name="Door" type="StaticBody2D" unique_id=1117986891]
@@ -227,5 +229,5 @@ position = Vector2(0.5, 12)
 shape = SubResource("RectangleShape2D_fo6ck")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="." unique_id=1334400201]
-stream = ExtResource("2_83dcw")
-pitch_scale = 0.7
+stream = ExtResource("3_83dcw")
+volume_db = -10.0

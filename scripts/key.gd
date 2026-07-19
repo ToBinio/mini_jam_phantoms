@@ -5,6 +5,8 @@ extends CharacterBody2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+@onready var keys_sound: AudioStreamPlayer2D = $KeysSound
+
 func _physics_process(delta: float) -> void:
 	
 	if following != null:
@@ -28,4 +30,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if following or body is not Player:
 		return
 		
+	keys_sound.play()
 	following = body

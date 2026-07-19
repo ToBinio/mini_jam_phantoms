@@ -14,6 +14,12 @@ extends CharacterBody2D
 
 var current_visual: Node2D
 
+var last_position: Vector2
+var stuck_timer := 0.0
+
+const STUCK_DISTANCE := 4.0
+const STUCK_TIME := 2
+
 func _ready() -> void:
 	current_visual = $Visual
 	
@@ -34,6 +40,16 @@ func _physics_process(delta: float) -> void:
 		current_visual.get_node("Sprite2D").flip_h = true
 
 	move_and_slide()
+	
+	if global_position.distance_to(last_position) < STUCK_DISTANCE * delta:
+		stuck_timer += delta
+		if stuck_timer > STUCK_TIME:
+			choose_new_target()
+			stuck_timer = 0.0
+	else:
+		stuck_timer = 0.0
+
+	last_position = global_position
 
 
 func choose_new_target():
