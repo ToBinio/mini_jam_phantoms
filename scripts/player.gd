@@ -196,14 +196,15 @@ func pufferfish_ability():
 	for i in shape_cast_2d.get_collision_count():
 		var body = shape_cast_2d.get_collider(i)
 		
-		var particles = rock_explosion_particles.instantiate()
-		particles.global_position = body.global_position
-		get_parent().add_child(particles)
-		
 		if body == self:
 			continue
 		
-		body.queue_free()
+		for group in body.get_groups():
+			if group == "ExplodableRocks":
+				var particles = rock_explosion_particles.instantiate()
+				particles.global_position = body.global_position
+				get_parent().add_child(particles)
+				body.queue_free()
 		
 	var new_body = possessed_body_scene.instantiate()
 	
