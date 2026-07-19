@@ -10,6 +10,7 @@ class_name Player
 var possessed_body_scene: PackedScene
 
 @export var possessed_particles: PackedScene
+@onready var possessed_audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 @onready var label: Label = $"../CanvasLayer/Control/Label"
@@ -154,6 +155,7 @@ func possess_nearby_body():
 		change_visual(body.visual_scene)
 		
 		is_possessing = true
+		possessed_audio.play()
 		
 		global_position = body.global_position
 		var particles = possessed_particles.instantiate()
@@ -183,6 +185,7 @@ func leave_body():
 	push_force = 0.0
 	
 	is_possessing = false
+	possessed_audio.play()
 	
 	label.text = ""
 	add_to_group("Player")

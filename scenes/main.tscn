@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c1xwhsvwbtyru" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cfo7xrly4e6tq" path="res://scripts/camera.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://5blcwfhg23tb" path="res://scripts/main.gd" id="1_tbgi4"]
+[ext_resource type="AudioStream" uid="uid://bofeahr7rxks8" path="res://sounds/underwater_ambience.ogg" id="2_o6xl0"]
 [ext_resource type="AudioStream" uid="uid://1hv0vgqk2t7s" path="res://sounds/drowned.ogg" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bw0m2b21bvkn8" path="res://scenes/fade_transition.tscn" id="5_tbgi4"]
 
@@ -171,6 +172,12 @@ _data = {
 
 [node name="Main" type="Node2D" unique_id=1102283499]
 script = ExtResource("1_tbgi4")
+
+[node name="BackgroundAudio" type="AudioStreamPlayer" parent="." unique_id=1345649575]
+stream = ExtResource("2_o6xl0")
+volume_db = 5.0
+autoplay = true
+parameters/looping = true
 
 [node name="MainAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1926989901]
 libraries/ = SubResource("AnimationLibrary_tbgi4")

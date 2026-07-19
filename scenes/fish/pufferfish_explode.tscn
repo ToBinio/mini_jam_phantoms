@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b4aga4a0nl5bq" path="res://assets/circle.png" id="1_qjjjw"]
 [ext_resource type="Script" uid="uid://bvh7e3ftjo372" path="res://scenes/particle_self_delete.gd" id="2_626dc"]
+[ext_resource type="AudioStream" uid="uid://bg1wuu0nife0k" path="res://sounds/pufferfish-explode.ogg" id="3_626dc"]
 
 [sub_resource type="Curve" id="Curve_626dc"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9026548, 0.017857194), -1.7791858, 0.0, 0, 0]
@@ -31,3 +32,8 @@ lifetime = 0.5
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_th88g")
 script = ExtResource("2_626dc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=431398896]
+stream = ExtResource("3_626dc")
+pitch_scale = 0.84
+autoplay = true
