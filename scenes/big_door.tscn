@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://f26oma1qtaqk"]
+
+[ext_resource type="Texture2D" uid="uid://cbxpqwhk6i6kk" path="res://assets/big-door.png" id="2_dan0d"]
+
+[sub_resource type="Animation" id="Animation_uvdjg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_83dcw"]
+resource_name = "open"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.4, 1, 1.1666666, 1.2666667, 1.3666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_la1wf"]
+_data = {
+&"RESET": SubResource("Animation_uvdjg"),
+&"open": SubResource("Animation_83dcw")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqjp7"]
+size = Vector2(39, 192)
+
+[node name="BigDoor" type="StaticBody2D" unique_id=1117986891]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1940030687]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_la1wf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1358574442]
+scale = Vector2(3, 3)
+texture = ExtResource("2_dan0d")
+hframes = 7
+
+[node name="TopCollision" type="CollisionShape2D" parent="." unique_id=1435713825]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_kqjp7")

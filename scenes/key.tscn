@@ -5,6 +5,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fttkb"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kqjp7"]
+radius = 111.16204
+
 [node name="Key" type="CharacterBody2D" unique_id=747457996]
 collision_layer = 0
 collision_mask = 0
@@ -17,3 +20,12 @@ texture = ExtResource("1_yk2u2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=12798629]
 position = Vector2(-3, 4)
 shape = SubResource("CircleShape2D_fttkb")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=688822910]
+collision_layer = 0
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=235845437]
+shape = SubResource("CircleShape2D_kqjp7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

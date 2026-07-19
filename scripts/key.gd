@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var following: Node2D 
+@onready var area_2d: Area2D = $Area2D
 
 func _physics_process(delta: float) -> void:
 	
@@ -12,3 +13,10 @@ func _physics_process(delta: float) -> void:
 	velocity = lerp(velocity, Vector2.ZERO, delta * 5)
 	
 	move_and_slide()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if following:
+		return
+		
+	following = body
