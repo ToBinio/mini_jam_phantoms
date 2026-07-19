@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dg0kgf3q5h05y" path="res://scenes/possesse_particles.tscn" id="3_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://r63pnc8oy31g" path="res://scenes/fish/pufferfish_explode.tscn" id="4_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://q8vixcibycgu" path="res://sounds/overtake.ogg" id="6_fjrip"]
+[ext_resource type="AudioStream" uid="uid://cmsje36vc3n3l" path="res://sounds/heart_beat.ogg" id="6_smehm"]
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 length = 0.001
@@ -136,7 +137,10 @@ pufferfish_explosion_particles = ExtResource("4_qlg0r")
 [node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1454075672]
 current = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=22678388]
+[node name="HeartBeatSound" type="AudioStreamPlayer2D" parent="." unique_id=725355107]
+stream = ExtResource("6_smehm")
+
+[node name="OverTake" type="AudioStreamPlayer2D" parent="." unique_id=22678388]
 stream = ExtResource("6_fjrip")
 volume_db = -5.0
 max_polyphony = 4

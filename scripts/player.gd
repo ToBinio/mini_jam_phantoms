@@ -10,7 +10,8 @@ class_name Player
 var possessed_body_scene: PackedScene
 
 @export var possessed_particles: PackedScene
-@onready var possessed_audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var possessed_audio: AudioStreamPlayer2D = $OverTake
+@onready var heart_beat_sound: AudioStreamPlayer2D = $HeartBeatSound
 
 @onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 @onready var label: Label = $"../CanvasLayer/Control/Label"
@@ -56,6 +57,7 @@ func _physics_process(delta: float) -> void:
 			if(seconds == 5 or seconds == 3 or seconds == 1):
 				animation_player.play("light_flicker")
 				camera.screen_shake(6, 0.5)
+				heart_beat_sound.play()
 				
 		last_seconds = seconds
 		
@@ -267,6 +269,8 @@ func _on_timer_timeout() -> void:
 	set_light(true)
 	
 	camera.screen_shake(8,1)
+	heart_beat_sound.play()
+	
 	await get_tree().create_timer(1).timeout
 	
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
