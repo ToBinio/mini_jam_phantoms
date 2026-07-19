@@ -12,5 +12,5 @@ region = Rect2(0, 0, 16, 0)
 scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_kqjp7")
 script = ExtResource("2_ndn6e")
-number_of_sprites = 6
+number_of_sprites = 8
 flip_sprites = true
