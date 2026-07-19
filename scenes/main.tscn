@@ -199,7 +199,7 @@ script = ExtResource("1_sugp2")
 player = NodePath("../Player")
 
 [node name="Player" parent="." unique_id=792900258 instance=ExtResource("1_o5qli")]
-position = Vector2(69, 418)
+position = Vector2(44, 429)
 acceleration = 700.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=292142929]
@@ -236,7 +236,7 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "uh'eor mgvulgtnah llll fortnite"
+text = "thahnk youl fht my frehehdom, oh wre'htkh"
 horizontal_alignment = 1
 vertical_alignment = 1
 visible_characters = 0

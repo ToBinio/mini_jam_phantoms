@@ -50,6 +50,7 @@ hframes = 4
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1748281980 groups=["lights"]]
 color = Color(0.3372549, 0.58431375, 0.8039216, 1)
+shadow_enabled = true
 texture = ExtResource("2_prirx")
 texture_scale = 3.0
 

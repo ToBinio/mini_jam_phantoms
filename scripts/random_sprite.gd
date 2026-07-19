@@ -5,7 +5,7 @@ extends Sprite2D
 
 func _ready() -> void:
 	var atlas = texture as AtlasTexture
-	atlas.region.position.x = 16 * randi_range(0, number_of_sprites - 1);
+	atlas.region.position.x = atlas.region.size.x * randi_range(0, number_of_sprites - 1);
 	
 	if flip_sprites:
 		flip_h = randf() > 0.5

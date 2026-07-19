@@ -161,6 +161,7 @@ collision_mask = 2
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1544402098 groups=["lights"]]
 color = Color(0.7204101, 0.8336144, 0.93730915, 1)
+shadow_enabled = true
 texture = ExtResource("3_qhqgy")
 texture_scale = 2.0
 
