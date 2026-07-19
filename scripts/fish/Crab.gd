@@ -36,9 +36,4 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = velocity.move_toward(direction*speed, acceleration * delta)
 	
-	if velocity.x > 0:
-		current_visual.get_node("Sprite2D").flip_h = false
-	elif velocity.x < 0:
-		current_visual.get_node("Sprite2D").flip_h = true
-
 	move_and_slide()
