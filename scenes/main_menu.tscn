@@ -25,9 +25,11 @@ shadow_offset = Vector2(0, 3.41)
 
 [node name="MainMenu" type="Control" unique_id=698208741]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1151.0
-offset_bottom = 646.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_l6cm7")
 
 [node name="Panel" type="Panel" parent="." unique_id=71306394]
@@ -96,7 +98,14 @@ text = "Exit"
 
 [node name="Fade_Transition" parent="." unique_id=1603357641 instance=ExtResource("2_ekxnf")]
 visible = false
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="FadeTimer" type="Timer" parent="Fade_Transition" unique_id=1961309538]
 
