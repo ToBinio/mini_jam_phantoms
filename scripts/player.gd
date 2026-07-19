@@ -230,6 +230,9 @@ func pufferfish_ability():
 	change_visual(original_visual_scene)
 	
 	$CollisionShape2D.shape = original_collision_shape
+	collision_layer = original_collision_layer
+	collision_mask = original_collision_mask
+	push_force = 0.0
 	
 	is_possessing = false
 	
