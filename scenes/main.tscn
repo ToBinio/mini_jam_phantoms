@@ -199,7 +199,7 @@ script = ExtResource("1_sugp2")
 player = NodePath("../Player")
 
 [node name="Player" parent="." unique_id=792900258 instance=ExtResource("1_o5qli")]
-position = Vector2(39, 441)
+position = Vector2(1358, 2413)
 acceleration = 700.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=292142929]
