@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://81hmafxm4icd" path="res://scripts/door.gd" id="1_qgxu4"]
 [ext_resource type="Texture2D" uid="uid://dbpexxs6fb1u2" path="res://assets/door.png" id="2_tpha5"]
+[ext_resource type="AudioStream" uid="uid://2wlkhmtotxrg" path="res://sounds/door.ogg" id="3_tpha5"]
 
 [sub_resource type="Animation" id="Animation_uvdjg"]
 length = 0.001
@@ -207,7 +208,7 @@ size = Vector2(7, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fo6ck"]
 size = Vector2(7, 24)
 
-[node name="Door" type="StaticBody2D" unique_id=1117986891]
+[node name="Door_Horizontal" type="StaticBody2D" unique_id=1117986891]
 script = ExtResource("1_qgxu4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1940030687]
@@ -227,3 +228,7 @@ shape = SubResource("RectangleShape2D_kqjp7")
 [node name="BottomCollision" type="CollisionShape2D" parent="." unique_id=1308073572]
 position = Vector2(0.5, 12)
 shape = SubResource("RectangleShape2D_fo6ck")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="." unique_id=1054350427]
+stream = ExtResource("3_tpha5")
+pitch_scale = 0.7
