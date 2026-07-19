@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpbxl58jop745"
-path="res://.godot/imported/circle_01_a.png-fa4ddd7540d84ef9dd78f43f9cea3ba8.ctex"
+uid="uid://ppua6x23gymq"
+path="res://.godot/imported/coralD.png-f45dcc2e2bb79f3b9ce0e8ff55ff7d88.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/coral/circle_01_a.png"
-dest_files=["res://.godot/imported/circle_01_a.png-fa4ddd7540d84ef9dd78f43f9cea3ba8.ctex"]
+source_file="res://assets/coralD.png"
+dest_files=["res://.godot/imported/coralD.png-f45dcc2e2bb79f3b9ce0e8ff55ff7d88.ctex"]
 
 [params]
 
