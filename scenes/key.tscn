@@ -2,8 +2,144 @@
 
 [ext_resource type="Script" uid="uid://cpiuei1usktby" path="res://scripts/key.gd" id="1_fttkb"]
 [ext_resource type="Texture2D" uid="uid://da671lhc2vni4" path="res://assets/key.png" id="1_yk2u2"]
+[ext_resource type="Texture2D" uid="uid://qpu1pqq4456n" path="res://assets/pixel.png" id="3_brs3p"]
+[ext_resource type="Texture2D" uid="uid://b4aga4a0nl5bq" path="res://assets/circle.png" id="4_brs3p"]
+
+[sub_resource type="Animation" id="Animation_wy8tx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ShockWave:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Explosion:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_fttkb"]
+resource_name = "destroy"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.9666667, 2.1666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ShockWave:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Explosion:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.9),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wy8tx"]
+_data = {
+&"RESET": SubResource("Animation_wy8tx"),
+&"destroy": SubResource("Animation_fttkb")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fttkb"]
+
+[sub_resource type="Curve" id="Curve_j754q"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.97455746, 0), -3.6321456, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cn0k2"]
+curve = SubResource("Curve_j754q")
+
+[sub_resource type="Curve" id="Curve_jcln5"]
+_data = [Vector2(0, 0.54017866), 0.0, 0.0, 0, 0, Vector2(0.3053097, 1), 0.055879403, 0.055879403, 0, 0, Vector2(1, 0), -4.3202868, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_fo6ck"]
+curve = SubResource("Curve_jcln5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kqjp7"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 13.0
+spread = 180.0
+initial_velocity_min = 91.579994
+initial_velocity_max = 151.09999
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_fo6ck")
+alpha_curve = SubResource("CurveTexture_cn0k2")
+turbulence_enabled = true
+
+[sub_resource type="Curve" id="Curve_626dc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9026548, 0.017857194), -1.7791858, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qjjjw"]
+curve = SubResource("Curve_626dc")
+
+[sub_resource type="Curve" id="Curve_devxs"]
+_data = [Vector2(0, 0), 0.0, -0.005513103, 0, 0, Vector2(1, 0.64062506), 1.7955503, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lv5tm"]
+curve = SubResource("Curve_devxs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wy8tx"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_lv5tm")
+color = Color(0, 0, 0, 1)
+alpha_curve = SubResource("CurveTexture_qjjjw")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqjp7"]
 radius = 111.16204
@@ -13,6 +149,10 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_fttkb")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1923332759]
+root_node = NodePath("../Area2D")
+libraries/ = SubResource("AnimationLibrary_wy8tx")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2125811300]
 scale = Vector2(3, 3)
 texture = ExtResource("1_yk2u2")
@@ -21,8 +161,24 @@ texture = ExtResource("1_yk2u2")
 position = Vector2(-3, 4)
 shape = SubResource("CircleShape2D_fttkb")
 
+[node name="Explosion" type="GPUParticles2D" parent="." unique_id=1294082188]
+emitting = false
+amount = 32
+texture = ExtResource("3_brs3p")
+one_shot = true
+explosiveness = 0.91
+process_material = SubResource("ParticleProcessMaterial_kqjp7")
+
+[node name="ShockWave" type="GPUParticles2D" parent="." unique_id=1748645889]
+emitting = false
+amount = 1
+texture = ExtResource("4_brs3p")
+lifetime = 0.5
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_wy8tx")
+
 [node name="Area2D" type="Area2D" parent="." unique_id=688822910]
-collision_layer = 0
+collision_layer = 16
 collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=235845437]

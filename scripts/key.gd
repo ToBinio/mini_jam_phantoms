@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var following: Node2D 
 @onready var area_2d: Area2D = $Area2D
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 func _physics_process(delta: float) -> void:
 	
 	if following != null:
@@ -14,9 +16,16 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
+func self_destroy():
+	following = null
+	animation_player.play("destroy")
+	
+	await animation_player.animation_finished
+	
+	queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if following:
+	if following or body is not Player:
 		return
 		
 	following = body

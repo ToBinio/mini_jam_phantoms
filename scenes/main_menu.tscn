@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cdy8ma27qaqj6"]
 
 [ext_resource type="Script" uid="uid://dejlbmbbrejq0" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://dmu5vduc556po" path="res://scripts/audio_slider.gd" id="2_bqqt6"]
 [ext_resource type="PackedScene" uid="uid://bw0m2b21bvkn8" path="res://scenes/fade_transition.tscn" id="2_ekxnf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vue75"]
@@ -70,18 +71,11 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_a8cn0")
 text = "Start Game"
 
-[node name="Options" type="Button" parent="VBoxContainer" unique_id=1597351394]
+[node name="HSlider" type="HSlider" parent="VBoxContainer" unique_id=1552658923]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_vue75")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_a8cn0")
-text = "Options"
+max_value = 1.0
+step = 0.001
+script = ExtResource("2_bqqt6")
 
 [node name="Exit" type="Button" parent="VBoxContainer" unique_id=27488352]
 layout_mode = 2
@@ -110,6 +104,6 @@ grow_vertical = 2
 [node name="FadeTimer" type="Timer" parent="Fade_Transition" unique_id=1961309538]
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="value_changed" from="VBoxContainer/HSlider" to="VBoxContainer/HSlider" method="_on_value_changed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="timeout" from="Fade_Transition/FadeTimer" to="." method="_on_fade_timer_timeout"]

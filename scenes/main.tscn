@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c1xwhsvwbtyru" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cfo7xrly4e6tq" path="res://scripts/camera.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://5blcwfhg23tb" path="res://scripts/main.gd" id="1_tbgi4"]
+[ext_resource type="AudioStream" uid="uid://1hv0vgqk2t7s" path="res://sounds/drowned.ogg" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bw0m2b21bvkn8" path="res://scenes/fade_transition.tscn" id="5_tbgi4"]
 
 [sub_resource type="Animation" id="Animation_tbgi4"]
@@ -31,6 +32,70 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0.13333334, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Control/CenterText:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainAnimationPlayer/drowned:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_tefeu"]
+resource_name = "end"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:target_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasModulate:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0.13333334, 1), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Control/CenterText:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.8666667, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="Animation" id="Animation_jyhfs"]
@@ -60,18 +125,34 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0.13333334, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainAnimationPlayer/drowned:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tbgi4"]
 _data = {
 &"RESET": SubResource("Animation_tbgi4"),
+&"end": SubResource("Animation_tefeu"),
 &"start": SubResource("Animation_jyhfs")
 }
 
 [node name="Main" type="Node2D" unique_id=1102283499]
 script = ExtResource("1_tbgi4")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1926989901]
+[node name="MainAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1926989901]
 libraries/ = SubResource("AnimationLibrary_tbgi4")
+
+[node name="drowned" type="AudioStreamPlayer" parent="MainAnimationPlayer" unique_id=2125555761]
+stream = ExtResource("2_tefeu")
 
 [node name="Map" parent="." unique_id=924707633 instance=ExtResource("1_jyhfs")]
 
@@ -110,6 +191,25 @@ offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
 horizontal_alignment = 1
+
+[node name="CenterText" type="Label" parent="CanvasLayer/Control" unique_id=1880169758]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "uh'eor mgvulgtnah llll fortnite"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="Fade_Transition" parent="." unique_id=1603357641 instance=ExtResource("5_tbgi4")]
 offset_left = 3958.0

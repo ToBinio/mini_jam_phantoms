@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://f26oma1qtaqk"]
 
+[ext_resource type="Script" uid="uid://lwx4asx8b5xa" path="res://scripts/big_door.gd" id="1_dan0d"]
 [ext_resource type="Texture2D" uid="uid://cbxpqwhk6i6kk" path="res://assets/big-door.png" id="2_dan0d"]
 
 [sub_resource type="Animation" id="Animation_uvdjg"]
@@ -42,7 +43,11 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqjp7"]
 size = Vector2(39, 192)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fo6ck"]
+size = Vector2(10.5, 192)
+
 [node name="BigDoor" type="StaticBody2D" unique_id=1117986891]
+script = ExtResource("1_dan0d")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1940030687]
 root_node = NodePath("../Sprite2D")
@@ -56,3 +61,13 @@ hframes = 7
 [node name="TopCollision" type="CollisionShape2D" parent="." unique_id=1435713825]
 position = Vector2(1.5, 0)
 shape = SubResource("RectangleShape2D_kqjp7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=356982417]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=839372365]
+position = Vector2(25.75, 0)
+shape = SubResource("RectangleShape2D_fo6ck")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

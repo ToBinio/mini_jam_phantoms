@@ -129,6 +129,9 @@ possessed_particles = ExtResource("3_tuyoq")
 rock_explosion_particles = ExtResource("3_dqkch")
 pufferfish_explosion_particles = ExtResource("4_qlg0r")
 
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1454075672]
+current = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1653304174]
 libraries/ = SubResource("AnimationLibrary_qlg0r")
 

@@ -3,7 +3,7 @@ extends Node2D
 @export var target_energy := 0.0
 var current_energy := 1.0
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var animation_player: AnimationPlayer = $MainAnimationPlayer
 
 func _ready() -> void:
 	$Fade_Transition/AnimationPlayer.play("Fade_out")
