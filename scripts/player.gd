@@ -17,6 +17,7 @@ var possessed_body_scene: PackedScene
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var rock_explosion_particles: PackedScene
+@export var pufferfish_explosion_particles: PackedScene
 
 var original_visual_scene: PackedScene
 var original_visual: Node2D
@@ -180,6 +181,12 @@ func change_visual(new_visual_scene: PackedScene):
 	
 func pufferfish_ability():
 	timer.start()
+	
+	var shock_wave = pufferfish_explosion_particles.instantiate()
+	shock_wave.global_position = global_position
+	get_parent().add_child(shock_wave)
+	
+	await get_tree().create_timer(0.2).timeout
 	
 	shape_cast_2d.force_shapecast_update()
 	

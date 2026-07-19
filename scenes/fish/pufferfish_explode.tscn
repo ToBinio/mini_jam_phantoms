@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://r63pnc8oy31g"]
+
+[ext_resource type="Texture2D" uid="uid://b4aga4a0nl5bq" path="res://assets/circle.png" id="1_qjjjw"]
+[ext_resource type="Script" uid="uid://bvh7e3ftjo372" path="res://scenes/particle_self_delete.gd" id="2_626dc"]
+
+[sub_resource type="Curve" id="Curve_626dc"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.9026548, 0.017857194), -1.7791858, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qjjjw"]
+curve = SubResource("Curve_626dc")
+
+[sub_resource type="Curve" id="Curve_devxs"]
+_data = [Vector2(0, 0), 0.0, -0.005513103, 0, 0, Vector2(1, 0.64062506), 1.7955503, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lv5tm"]
+curve = SubResource("Curve_devxs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_th88g"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_lv5tm")
+alpha_curve = SubResource("CurveTexture_qjjjw")
+
+[node name="PufferfishExplode" type="GPUParticles2D" unique_id=1748645889]
+emitting = false
+amount = 1
+texture = ExtResource("1_qjjjw")
+lifetime = 0.5
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_th88g")
+script = ExtResource("2_626dc")

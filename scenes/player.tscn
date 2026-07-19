@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://7wf41v6g7flq" path="res://scenes/player_visual.tscn" id="2_g2els"]
 [ext_resource type="PackedScene" uid="uid://ey0eeecqbofs" path="res://scenes/explodable_rocks_particle.tscn" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://chmfpncmfqa0d" path="res://assets/2d_lights_and_shadows_neutral_point_light.webp" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://r63pnc8oy31g" path="res://scenes/fish/pufferfish_explode.tscn" id="4_qlg0r"]
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 length = 0.001
@@ -124,6 +125,7 @@ collision_layer = 8
 script = ExtResource("1_3vyb7")
 visual_scene = ExtResource("2_g2els")
 rock_explosion_particles = ExtResource("3_dqkch")
+pufferfish_explosion_particles = ExtResource("4_qlg0r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1653304174]
 libraries/ = SubResource("AnimationLibrary_qlg0r")
