@@ -48,7 +48,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("1_a44um")
 hframes = 4
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1748281980]
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1748281980 groups=["lights"]]
 color = Color(0.3372549, 0.58431375, 0.8039216, 1)
 texture = ExtResource("2_prirx")
 texture_scale = 3.0

@@ -37,6 +37,8 @@ func _ready() -> void:
 	original_collision_shape = $CollisionShape2D.shape
 	original_collision_layer = collision_layer
 	original_collision_mask = collision_mask
+	
+	timer.wait_time = 25;
 	timer.start()
 
 func _physics_process(delta: float) -> void:
@@ -149,6 +151,7 @@ func possess_nearby_body():
 		break
 		
 func leave_body():
+	timer.wait_time = 10;
 	timer.start()
 	
 	var new_body = possessed_body_scene.instantiate()
