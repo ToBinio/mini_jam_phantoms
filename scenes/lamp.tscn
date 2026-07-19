@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cwto5k4xtvpe1"]
+
+[ext_resource type="Texture2D" uid="uid://rrtnq7yssmil" path="res://assets/lamp.png" id="1_hxjgs"]
+[ext_resource type="Texture2D" uid="uid://chmfpncmfqa0d" path="res://assets/2d_lights_and_shadows_neutral_point_light.webp" id="2_60c0r"]
+
+[node name="Lamp" type="Node2D" unique_id=1322996221]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=511461340]
+position = Vector2(0, -24)
+scale = Vector2(3, 3)
+texture = ExtResource("1_hxjgs")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1360191513 groups=["lights"]]
+position = Vector2(0, -12)
+color = Color(0.10362098, 0.20489603, 0.35639384, 1)
+texture = ExtResource("2_60c0r")
