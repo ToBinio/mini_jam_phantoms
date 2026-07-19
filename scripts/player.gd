@@ -241,7 +241,7 @@ func crab_ability():
 
 
 func _on_timer_timeout() -> void:
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 var light_on = true
 func set_light(off: bool) -> void:

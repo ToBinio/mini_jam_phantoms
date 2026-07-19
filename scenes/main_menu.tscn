@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://cdy8ma27qaqj6"]
+
+[ext_resource type="Script" uid="uid://dejlbmbbrejq0" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="PackedScene" uid="uid://bw0m2b21bvkn8" path="res://scenes/fade_transition.tscn" id="2_ekxnf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vue75"]
+bg_color = Color(0.34939972, 0.6156942, 0.9020798, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
+bg_color = Color(0.1315349, 0.6191862, 0.9999998, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a8cn0"]
+
+[node name="MainMenu" type="Control" unique_id=698208741]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 646.0
+script = ExtResource("1_l6cm7")
+
+[node name="Panel" type="Panel" parent="." unique_id=71306394]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1353760827]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.34375
+offset_top = -191.25
+offset_right = 191.34375
+offset_bottom = 191.25
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 66
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=1787456204]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vue75")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a8cn0")
+text = "Start Game"
+
+[node name="Options" type="Button" parent="VBoxContainer" unique_id=1597351394]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vue75")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a8cn0")
+text = "Options"
+
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=27488352]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_vue75")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vue75")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_a8cn0")
+text = "Exit"
+
+[node name="Fade_Transition" parent="." unique_id=1603357641 instance=ExtResource("2_ekxnf")]
+visible = false
+layout_mode = 0
+
+[node name="FadeTimer" type="Timer" parent="Fade_Transition" unique_id=1961309538]
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="timeout" from="Fade_Transition/FadeTimer" to="." method="_on_fade_timer_timeout"]

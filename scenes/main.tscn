@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c1xwhsvwbtyru" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cfo7xrly4e6tq" path="res://scripts/camera.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://5blcwfhg23tb" path="res://scripts/main.gd" id="1_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bw0m2b21bvkn8" path="res://scenes/fade_transition.tscn" id="5_tbgi4"]
 
 [sub_resource type="Animation" id="Animation_tbgi4"]
 length = 0.001
@@ -114,3 +115,9 @@ horizontal_alignment = 1
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="Fade_Transition" parent="." unique_id=1603357641 instance=ExtResource("5_tbgi4")]
+offset_left = 3958.0
+offset_top = -1054.0
+offset_right = 5110.0
+offset_bottom = -406.0

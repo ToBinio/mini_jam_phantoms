@@ -6,7 +6,7 @@ extends Node2D
 
 @export var doors: Array[Door]
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var bodies = area_2d.get_overlapping_bodies()
 	
 	if bodies.size() > 0:

@@ -6,6 +6,7 @@ var current_energy := 1.0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
+	$Fade_Transition/AnimationPlayer.play("Fade_out")
 	current_energy = 0.0
 	target_energy = 0.0
 	
