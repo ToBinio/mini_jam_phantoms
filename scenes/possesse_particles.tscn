@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dg0kgf3q5h05y"]
+
+[ext_resource type="Texture2D" uid="uid://qpu1pqq4456n" path="res://assets/pixel.png" id="1_etxqq"]
+[ext_resource type="Script" uid="uid://bvh7e3ftjo372" path="res://scenes/particle_self_delete.gd" id="2_pyafg"]
+
+[sub_resource type="Curve" id="Curve_etxqq"]
+_data = [Vector2(0, 0), 0.0, 3.5035326, 0, 0, Vector2(0.3772124, 1), 0.0, 0.0, 0, 0, Vector2(0.7311947, 0.97767866), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_kqjp7"]
+curve = SubResource("Curve_etxqq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pyafg"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.63
+angle_min = 1.0728835e-05
+angle_max = 720.0
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = 99.99999
+tangential_accel_max = 99.99999
+attractor_interaction_enabled = false
+scale_min = 3.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_kqjp7")
+
+[node name="PossesseParticles" type="GPUParticles2D" unique_id=126090715]
+emitting = false
+amount = 32
+texture = ExtResource("1_etxqq")
+one_shot = true
+explosiveness = 0.75
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_pyafg")
+script = ExtResource("2_pyafg")

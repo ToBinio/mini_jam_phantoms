@@ -111,11 +111,6 @@ offset_bottom = 23.0
 grow_horizontal = 2
 horizontal_alignment = 1
 
-[node name="Time" type="Label" parent="CanvasLayer/Control" unique_id=2107545355]
-layout_mode = 1
-offset_right = 40.0
-offset_bottom = 23.0
-
 [node name="Fade_Transition" parent="." unique_id=1603357641 instance=ExtResource("5_tbgi4")]
 offset_left = 3958.0
 offset_top = -1054.0

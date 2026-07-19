@@ -9,9 +9,10 @@ class_name Player
 @export var visual_scene: PackedScene
 var possessed_body_scene: PackedScene
 
+@export var possessed_particles: PackedScene
+
 @onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 @onready var label: Label = $"../CanvasLayer/Control/Label"
-@onready var time: Label = $"../CanvasLayer/Control/Time"
 @onready var timer: Timer = $Timer
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -41,11 +42,21 @@ func _ready() -> void:
 	timer.wait_time = 25;
 	timer.start()
 
+var is_dead = false
+var last_seconds = 0
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		return
+	
 	if !is_possessing:
-		time.text = str(int(ceil(timer.time_left)))
-	else:
-		time.text = ""
+		var seconds = int(ceil(timer.time_left))
+		
+		if seconds != last_seconds:
+			if(seconds == 5 or seconds == 3 or seconds == 1):
+				animation_player.play("light_flicker")
+				camera.screen_shake(6, 0.5)
+				
+		last_seconds = seconds
 		
 	if Input.is_action_just_pressed("phantom"):
 		if !is_possessing:
@@ -145,6 +156,8 @@ func possess_nearby_body():
 		is_possessing = true
 		
 		global_position = body.global_position
+		var particles = possessed_particles.instantiate()
+		add_child(particles)
 		
 		body.queue_free()
 		
@@ -241,6 +254,12 @@ func crab_ability():
 
 
 func _on_timer_timeout() -> void:
+	is_dead = true
+	set_light(true)
+	
+	camera.screen_shake(8,1)
+	await get_tree().create_timer(1).timeout
+	
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 var light_on = true
