@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bnxoss5vydth1" path="res://scenes/blocker.tscn" id="18_6k6j1"]
 [ext_resource type="Texture2D" uid="uid://u87g61ohqtfu" path="res://assets/coralC.png" id="19_2cfcp"]
 [ext_resource type="PackedScene" uid="uid://eg78qk7gkvum" path="res://scenes/fish/fish_red.tscn" id="20_m335s"]
+[ext_resource type="Texture2D" uid="uid://bsx0ufk1reqdn" path="res://assets/bubbles.png" id="22_2cfcp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6xl0"]
 texture = ExtResource("2_0cso3")
@@ -448,6 +449,38 @@ resource_local_to_scene = true
 atlas = ExtResource("19_2cfcp")
 region = Rect2(0, 0, 16, 0)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fo6ck"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_gx40d"]
+_data = [Vector2(0, 1), 0.0, 0.308429, 0, 0, Vector2(0.7920354, 0), -1.9331924, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_j754q"]
+curve = SubResource("Curve_gx40d")
+
+[sub_resource type="Curve" id="Curve_g8nl4"]
+_data = [Vector2(0.006637171, 0), 0.0, 0.0, 0, 0, Vector2(0.17256637, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.8060393, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_cn0k2"]
+curve = SubResource("Curve_g8nl4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kqjp7"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 6.33
+gravity = Vector3(0, -120, 0)
+scale_min = 3.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_cn0k2")
+alpha_curve = SubResource("CurveTexture_j754q")
+anim_offset_max = 1.0
+turbulence_enabled = true
+
 [node name="Map" type="Node2D" unique_id=924707633]
 
 [node name="Tiles" type="Node2D" parent="." unique_id=624204716]
@@ -597,6 +630,13 @@ position = Vector2(936, 1560)
 position = Vector2(51, 462.00003)
 scale = Vector2(3, 3)
 texture = ExtResource("11_mlgqr")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="DeadBody" unique_id=1440693213]
+material = SubResource("CanvasItemMaterial_fo6ck")
+position = Vector2(-4.666667, 4.99999)
+texture = ExtResource("22_2cfcp")
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_kqjp7")
 
 [node name="Fish" parent="." unique_id=316055752 instance=ExtResource("20_m335s")]
 position = Vector2(128, -40)
