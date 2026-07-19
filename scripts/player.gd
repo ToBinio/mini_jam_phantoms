@@ -42,10 +42,10 @@ func _ready() -> void:
 	timer.wait_time = 25;
 	timer.start()
 
-var is_dead = false
+@export var is_frozen = false
 var last_seconds = 0
 func _physics_process(delta: float) -> void:
-	if is_dead:
+	if is_frozen:
 		return
 	
 	if !is_possessing:
@@ -257,7 +257,10 @@ func crab_ability():
 
 
 func _on_timer_timeout() -> void:
-	is_dead = true
+	if is_frozen:
+		return
+	
+	is_frozen = true
 	set_light(true)
 	
 	camera.screen_shake(8,1)
