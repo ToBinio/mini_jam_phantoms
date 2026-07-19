@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://btobhx5j2b8cq" path="res://assets/box.png" id="1_3inec"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_be0no"]
-friction = 0.1
+friction = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cn0k2"]
 size = Vector2(72, 72)
