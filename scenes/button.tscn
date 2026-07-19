@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bla67e6h5jhvi" path="res://scripts/button.gd" id="1_rhj8v"]
 [ext_resource type="Texture2D" uid="uid://blkoyym8xcyw" path="res://assets/button.png" id="2_rhj8v"]
+[ext_resource type="AudioStream" uid="uid://b7cwdvceiu6h3" path="res://sounds/button_down.ogg" id="3_i7y4x"]
+[ext_resource type="AudioStream" uid="uid://dx028qh8ei6ty" path="res://sounds/button_up.ogg" id="4_1bdt2"]
 
 [sub_resource type="Animation" id="Animation_uvdjg"]
 length = 0.001
@@ -72,6 +74,14 @@ position = Vector2(0, -24)
 scale = Vector2(3, 3)
 texture = ExtResource("2_rhj8v")
 hframes = 2
+
+[node name="DownSound" type="AudioStreamPlayer2D" parent="." unique_id=375812661]
+stream = ExtResource("3_i7y4x")
+pitch_scale = 0.6
+
+[node name="UpSound" type="AudioStreamPlayer2D" parent="." unique_id=1110967753]
+stream = ExtResource("4_1bdt2")
+pitch_scale = 0.6
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1162539767]
 collision_mask = 6

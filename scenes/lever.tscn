@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://lckqrmvgn5yo" path="res://scripts/lever.gd" id="1_ncfea"]
 [ext_resource type="Texture2D" uid="uid://cok53us18l6lf" path="res://assets/lever.png" id="2_ncfea"]
+[ext_resource type="AudioStream" uid="uid://7w5jbk72ph5e" path="res://sounds/lever.ogg" id="2_qxmkn"]
 
 [sub_resource type="Animation" id="Animation_uvdjg"]
 length = 0.001
@@ -63,6 +64,11 @@ size = Vector2(31.5, 6)
 [node name="lever" type="StaticBody2D" unique_id=1117986891 groups=["Lever"]]
 collision_layer = 2
 script = ExtResource("1_ncfea")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="." unique_id=1869012013]
+stream = ExtResource("2_qxmkn")
+pitch_scale = 0.9
+max_polyphony = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1940030687]
 root_node = NodePath("../Sprite2D")

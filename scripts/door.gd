@@ -4,6 +4,7 @@ class_name Door
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @export var is_open: bool = true
+@onready var audio: AudioStreamPlayer2D = $Audio
 
 func _ready() -> void:
 	if is_open:
@@ -18,9 +19,11 @@ func change_state() -> void:
 		open()
 
 func open() -> void:
+	audio.play()
 	is_open = true
 	animation_player.play("open")
 
 func close() -> void:
+	audio.play()
 	is_open = false
 	animation_player.play("close")

@@ -6,6 +6,8 @@ class_name Lever
 
 @export var doors: Array[Door]
 
+@onready var sound: AudioStreamPlayer2D = $Sound
+
 func _ready() -> void:
 	if is_left:
 		left()
@@ -16,11 +18,13 @@ func left() -> void:
 	toogle_doors()
 	is_left = true
 	animation_player.play("left")
+	sound.play()
 	
 func right() -> void:
 	toogle_doors()
 	is_left = false
 	animation_player.play("right")
+	sound.play()
 
 func toogle_doors() -> void:
 	for door in doors:

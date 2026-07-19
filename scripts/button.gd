@@ -6,6 +6,9 @@ extends Node2D
 
 @export var doors: Array[Door]
 
+@onready var down_sound: AudioStreamPlayer2D = $DownSound
+@onready var up_sound: AudioStreamPlayer2D = $UpSound
+
 func _physics_process(_delta):
 	var bodies = area_2d.get_overlapping_bodies()
 	
@@ -26,11 +29,13 @@ func up() -> void:
 	toogle_doors()
 	is_up = true
 	animation_player.play("up")
+	up_sound.play()
 
 func down() -> void:
 	toogle_doors()
 	is_up = false
 	animation_player.play("down")
+	down_sound.play()
 	
 func toogle_doors() -> void:
 	for door in doors:
