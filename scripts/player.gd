@@ -19,6 +19,8 @@ var possessed_body_scene: PackedScene
 @export var rock_explosion_particles: PackedScene
 @export var pufferfish_explosion_particles: PackedScene
 
+@onready var camera: Camera = %Camera2D
+
 var original_visual_scene: PackedScene
 var original_visual: Node2D
 var current_visual: Node2D
@@ -189,6 +191,7 @@ func pufferfish_ability():
 	await get_tree().create_timer(0.2).timeout
 	
 	shape_cast_2d.force_shapecast_update()
+	camera.screen_shake(8, 0.5)
 	
 	for i in shape_cast_2d.get_collision_count():
 		var body = shape_cast_2d.get_collider(i)

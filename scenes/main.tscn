@@ -13,6 +13,7 @@ position = Vector2(252, 224)
 color = Color(0, 0, 0.13333334, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1637750593 node_paths=PackedStringArray("player")]
+unique_name_in_owner = true
 position = Vector2(39, 437)
 position_smoothing_enabled = true
 script = ExtResource("1_sugp2")
